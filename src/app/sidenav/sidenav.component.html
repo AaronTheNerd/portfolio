@@ -1,0 +1,17 @@
+<mat-sidenav mode="side" opened class="bg-darker">
+  <div *ngFor="let item of sidenavItems" class="d-flex">
+    <a
+      mat-flat-button
+      class="p-3"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [matTooltip]="item.tooltip"
+      matTooltipPosition="right">
+      <mat-icon
+        inline="true"
+        [fontIcon]="item.icon"
+        style="vertical-align: top; font-size: 2em;">
+      </mat-icon>
+    </a>
+  </div>
+</mat-sidenav>
