@@ -1,6 +1,10 @@
-<mat-sidenav-container class="col-xs-12" style="height: 100vh">
-  <app-sidenav></app-sidenav>
-  <mat-sidenav-container class="d-flex">
+<mat-sidenav-container
+  class="col-xs-12 bg-dark"
+  style="height: 100vh">
+  <div>
+    <app-sidenav></app-sidenav>
+  </div>
+  <mat-sidenav-container class="bg-dark text-light" style="margin-left: 4.2em;">
     <router-outlet></router-outlet>
   </mat-sidenav-container>
 </mat-sidenav-container>

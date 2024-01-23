@@ -9,7 +9,8 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { SidenavComponent } from './sidenav/sidenav.component'
 import { MatIconModule } from "@angular/material/icon";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import {MatTooltipModule} from "@angular/material/tooltip"
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatTooltipModule} from "@angular/material/tooltip"
     AppRoutingModule,
     MatIconModule,
     NgbModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

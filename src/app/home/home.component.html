@@ -1,1 +1,31 @@
-<p>home works!</p>
+
+<div id="home-content" class="position-relative">
+    <div
+      id="inner-content"
+      class="row position-absolute top-50 start-50 translate-middle">
+      <div class="col position-relative">
+        <img
+          id="image"
+          class="h-auto rounded-circle border border-5 border-dark position-absolute top-50 start-0 translate-middle-y"
+          src="../../assets/me.jpg"
+          width="70%" />
+      </div>
+      <div id="contact-content" class="col-auto p-3 rounded bg-dark">
+        <h1 class="py-0 my-0">Hello,</h1>
+        <p class="display-3 py-0 my-0">I'm Aaron Barge</p>
+        <p class="display-6 py-0 mt-0 text-primary">Software Developer</p>
+        <div class="row mx-0">
+          <button class="btn btn-primary col-auto me-auto">Resume</button>
+          <div class="col-auto px-0 mt-auto">
+            <a
+              *ngFor="let icon of icons; index as i"
+              [href]="icon.link"
+              class="text-white h3"
+              [ngClass]="{'ps-2': i !== 0}">
+              <fa-icon [icon]="icon.name"></fa-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
