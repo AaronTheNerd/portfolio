@@ -12,21 +12,32 @@ import { Sort } from '../_enums/sort.enum';
 })
 export class QueryProjectsService {
   searchResultsChanged = new Subject<Project[]>();
+  queryChanged = new Subject<ProjectQuery>();
   searchResults!: Project[];
+  currentQuery: ProjectQuery; 
 
   constructor(private projectsService: ProjectsService) {
-    this.query(defaultQuery());
+    this.currentQuery = defaultQuery();
+    this._query();
+    this.queryChanged.subscribe((query: ProjectQuery) => {
+      this.currentQuery = query;
+      this._query();
+    });
+  }
+
+  getQuery(): ProjectQuery {
+    return this.currentQuery;
   }
 
   getResults(): Project[] {
     return this.searchResults.slice();
   }
 
-  query(query: ProjectQuery): void {
+  _query(): void {
     let results = this.projectsService.getProjects();
-    results = this.filter(results, query.filter);
-    results = this.search(results, query.search);
-    results = this.sort(results, query.sort);
+    results = this.filter(results, this.currentQuery.filter);
+    results = this.search(results, this.currentQuery.search);
+    results = this.sort(results, this.currentQuery.sort);
     this.searchResults = results;
     this.searchResultsChanged.next(this.getResults());
   }

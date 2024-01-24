@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { QueryProjectsService } from '../../_services/query-projects.service';
 import { ProjectQuery, defaultQuery } from '../../_models/project-query.model';
 import { Sort } from '../../_enums/sort.enum';
@@ -9,7 +9,7 @@ import { MatSelectChange } from '@angular/material/select';
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss'
 })
-export class SearchBarComponent {
+export class SearchBarComponent implements OnInit{
   sortOptions: Sort[] = [
     Sort.lang_a_z,
     Sort.lang_z_a,
@@ -17,19 +17,23 @@ export class SearchBarComponent {
     Sort.title_a_z,
     Sort.title_z_a,
   ];
-  query: ProjectQuery = defaultQuery();
+  query!: ProjectQuery;
 
   constructor(private queryService: QueryProjectsService) {}
   
+  ngOnInit(): void {
+    this.query = this.queryService.getQuery();
+  }
+
   onSearchChange(event: Event) {
     const inputEvent = <InputEvent>(event);
     const target = <HTMLTextAreaElement>(inputEvent.target);
     this.query.search = target.value.trim();
-    this.queryService.query(this.query);
+    this.queryService.queryChanged.next(this.query);
   }
 
   onSortChange(selectChange: MatSelectChange) {
     this.query.sort = selectChange.value;
-    this.queryService.query(this.query);
+    this.queryService.queryChanged.next(this.query);
   }
 }

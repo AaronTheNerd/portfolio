@@ -21,6 +21,8 @@ import { ArticleComponent } from './article.component'
 import { MatFormFieldModule } from "@angular/material/form-field"
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatSelectModule } from "@angular/material/select"
+import { FormsModule } from '@angular/forms';
+import { FilterDialogComponent } from './projects/search-bar/filter-dialog/filter-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { MatSelectModule } from "@angular/material/select"
     TruncatePipe,
     ImageCarouselComponent,
     SearchBarComponent,
-    ArticleComponent
+    ArticleComponent,
+    FilterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { MatSelectModule } from "@angular/material/select"
     MatFormFieldModule,
     MatDialogModule,
     MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
