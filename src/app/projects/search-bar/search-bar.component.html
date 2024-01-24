@@ -1,0 +1,33 @@
+<div style="position: relative;">
+  <input
+    class="form-control d-inline-block bg-darker border-0 text-white"
+    type="search"
+    placeholder="Search"
+    style="width: 15em"
+    (input)="onSearchChange($event)">
+  <button class="btn text-primary d-inline-block me-auto p-0 px-3">
+    <mat-icon
+      inline="true"
+      fontIcon="filter_list"
+      matTooltip="Filter..."
+      style="vertical-align: top; font-size: 1.5em;">
+    </mat-icon>
+  </button>
+  <div
+    style="position: absolute; width: 12em; right: 0; align-items: center;"
+    class="d-inline-block">
+    <mat-select
+      (selectionChange)="onSortChange($event)"
+      class="form-control bg-darker border-0 text-white my-auto"
+      color="primary"
+      [(value)]="query.sort"
+      placeholder="Sort"
+      matTooltip="Sort...">
+      <mat-option
+        *ngFor="let option of sortOptions"
+        [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-select>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="rounded" style="position:relative">
+  <div class="carousel-image-wrapper float-right ms-auto">
+    <img [@fade]="toggle" class="carousel-image rounded" style="position: absolute; z-index: 10"
+      (@fade.done)="onFade($event)" [src]="images[count % images.length]">
+    <img class="carousel-image rounded" [src]="images[(count + images.length - 1) % images.length]">
+  </div>
+</div>
