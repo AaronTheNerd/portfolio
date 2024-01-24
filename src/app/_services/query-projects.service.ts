@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 
 import { Project } from '../_models/project.model';
 import { ProjectsService } from './projects.service';
-import { ProjectQuery } from '../_models/project-query.model';
+import { ProjectQuery, defaultQuery } from '../_models/project-query.model';
 import { Filter } from '../_models/filter.model';
 import { Sort } from '../_enums/sort.enum';
 
@@ -12,10 +12,10 @@ import { Sort } from '../_enums/sort.enum';
 })
 export class QueryProjectsService {
   searchResultsChanged = new Subject<Project[]>();
-  searchResults: Project[];
+  searchResults!: Project[];
 
   constructor(private projectsService: ProjectsService) {
-    this.searchResults = this.projectsService.getProjects();
+    this.query(defaultQuery());
   }
 
   getResults(): Project[] {
@@ -64,6 +64,7 @@ export class QueryProjectsService {
       if (dateB < dateA) return -1;
       return 0;
     };
+    
     switch (sort) {
       case Sort.title_a_z:
         return projects.sort(titleSort);

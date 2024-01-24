@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { QueryProjectsService } from '../../_services/query-projects.service';
-import { ProjectQuery } from '../../_models/project-query.model';
-import { defaultFilter } from '../../_models/filter.model';
+import { ProjectQuery, defaultQuery } from '../../_models/project-query.model';
 import { Sort } from '../../_enums/sort.enum';
 import { MatSelectChange } from '@angular/material/select';
 
@@ -18,7 +17,7 @@ export class SearchBarComponent {
     Sort.title_a_z,
     Sort.title_z_a,
   ];
-  query = new ProjectQuery("", defaultFilter(), Sort.newest);
+  query: ProjectQuery = defaultQuery();
 
   constructor(private queryService: QueryProjectsService) {}
   
