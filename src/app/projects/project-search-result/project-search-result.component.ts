@@ -11,7 +11,6 @@ import { DisplayLanguageService } from '../../_services/display-language.service
 })
 export class ProjectSearchResultComponent {
   @Input({ required: true }) project!: Project;
-  @Input({ required: true }) index!: number;
   starIcon = faStar;
   githubIcon = faGithub;
 

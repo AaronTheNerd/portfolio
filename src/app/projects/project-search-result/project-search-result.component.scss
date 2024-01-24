@@ -1,4 +1,10 @@
+@import "../../app.variables.scss";
+
 .project-row:hover {
-  background-color: var(--bs-gray-300);
+  border: $primary solid 3px;
   cursor: pointer;
+}
+
+.project-row:not(:hover) {
+  border: $darker solid 3px;
 }

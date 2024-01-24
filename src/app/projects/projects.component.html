@@ -1,11 +1,11 @@
 <app-article>
   <p class="display-4">Projects</p>
-  <hr class="hr" />
   <app-search-bar></app-search-bar>
-  <hr class="hr" />
-  <div class="bg-light text-black">
+  <div
+    *ngFor="let proj of projects; index as i"
+    class="my-4">
     <app-project-search-result 
-      *ngFor="let proj of projects; index as i" [project]="proj" [index]="i">
+      [project]="proj">
     </app-project-search-result>
   </div>
 </app-article>

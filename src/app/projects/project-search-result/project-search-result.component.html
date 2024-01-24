@@ -1,7 +1,6 @@
 <div
   [routerLink]="['projects', project.id]"
-  class="project-row row m-0 p-3"
-  [ngClass]="{'border-top': index !== 0}">
+  class="project-row row m-0 p-3 rounded bg-darker">
   <div class="col ps-0 my-auto">
     <h1>
       {{ project.title }}&nbsp;
@@ -40,7 +39,7 @@
         [href]="project.gitLink"
         matTooltip="Link to source"
         class="mx-1"
-        style="color: #000; z-index: 100; vertical-align: middle"
+        style="z-index: 100; vertical-align: middle"
         role="button">
         <fa-icon
           [icon]="githubIcon"
