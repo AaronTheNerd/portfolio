@@ -46,8 +46,9 @@ export class QueryProjectsService {
   filter(projects: Project[], filter: Filter): Project[] {
     const allowedLanguages: string[] = [];
     for (let langauge in filter.includeLanguages) {
-      if (filter.includeLanguages[langauge])
+      if (filter.includeLanguages[langauge]) {
         allowedLanguages.push(langauge);
+      }
     }
     return projects.filter((project: Project) => {
       return !project.school || filter.includeSchool;
@@ -60,7 +61,15 @@ export class QueryProjectsService {
   }
 
   search(projects: Project[], search: string): Project[] {
-    return projects;
+    if (!search || !search.trim())
+      return projects;
+    return projects.filter((project: Project) => {
+      return project.title.toLowerCase().includes(search.toLowerCase())
+        || project.description.toLowerCase().includes(search.toLowerCase())
+        || project.tags.filter((tag: string) => {
+          return tag.toLowerCase().includes(search);
+        }).length > 0;
+    });
   }
 
   sort(projects: Project[], sort: Sort): Project[] {
