@@ -1,0 +1,47 @@
+<mat-dialog-content class="bg-dark text-white">
+  <h5 class="display-7">Include Languages:</h5>
+  <ul style="width: 12em;">
+    <li
+      *ngFor="let item of data.includeLanguages| keyvalue"
+      class="d-block pe-2">
+      <mat-checkbox
+        class="text-white"
+        color="primary"
+        [(ngModel)]="data.includeLanguages[item.key]">
+        {{ displayLanguageString(item.key) }}
+      </mat-checkbox>
+    </li>
+  </ul>
+
+  <button
+    class="btn btn-primary"
+    (click)="enableAllLanguages(data)">
+    Enable All
+  </button>
+  <button
+    class="btn btn-outline-primary"
+    (click)="disableAllLanguages(data)">
+    Disable All
+  </button>
+
+  <h5 class="display-7 pt-3">Include University Projects:</h5>
+  <mat-checkbox
+    class="d-block"
+    style="color: white;"
+    color="primary"
+    [(ngModel)]="data.includeSchool">
+    Include University Projects
+  </mat-checkbox>
+</mat-dialog-content>
+<mat-dialog-actions class="bg-darker">
+  <button
+    mat-button
+    type="button"
+    class="btn btn-danger text-white me-auto"
+    (click)="onCancelClick()">Cancel</button>
+  <button
+    mat-button
+    type="button"
+    class="btn btn-primary"
+    [mat-dialog-close]="data">Confirm</button>
+</mat-dialog-actions>

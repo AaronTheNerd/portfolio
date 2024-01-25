@@ -9,7 +9,7 @@ import { Language } from '../_enums/language.enum';
 export class DisplayLanguageService {
   constructor() { }
 
-  display(lang: Language): string {
+  display(lang: Language | string): string {
     let displayLang = "";
     const titleCase = new TitleCasePipe();
     switch (lang) {

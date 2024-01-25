@@ -6,7 +6,9 @@
     style="width: 15em"
     (input)="onSearchChange($event)"
     [(ngModel)]="query.search">
-  <button class="btn text-primary d-inline-block me-auto p-0 px-3">
+  <button
+    class="btn text-primary p-0 px-3"
+    (click)="openFilterDialog()">
     <mat-icon
       inline="true"
       fontIcon="filter_list"

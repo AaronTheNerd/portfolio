@@ -23,6 +23,7 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatSelectModule } from "@angular/material/select"
 import { FormsModule } from '@angular/forms';
 import { FilterDialogComponent } from './projects/search-bar/filter-dialog/filter-dialog.component';
+import { MatCheckboxModule } from '@angular/material/checkbox'
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FilterDialogComponent } from './projects/search-bar/filter-dialog/filte
     MatFormFieldModule,
     MatDialogModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,7 @@ import { Language } from "../_enums/language.enum";
 
 export class Filter {
   constructor(
-    public includedLanguages: {[language: string]: boolean},
+    public includeLanguages: {[language: string]: boolean},
     public includeSchool: boolean
   ) {}
 }
