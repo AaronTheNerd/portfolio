@@ -6,6 +6,7 @@ import { ProjectsService } from './projects.service';
 import { ProjectQuery, defaultQuery } from '../_models/project-query.model';
 import { Filter } from '../_models/filter.model';
 import { Sort } from '../_enums/sort.enum';
+import { Language, valueStringToLanguage } from '../_enums/language.enum'; 
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,19 @@ export class QueryProjectsService {
   }
 
   filter(projects: Project[], filter: Filter): Project[] {
-    return projects;
+    const allowedLanguages: string[] = [];
+    for (let langauge in filter.includeLanguages) {
+      if (filter.includeLanguages[langauge])
+        allowedLanguages.push(langauge);
+    }
+    return projects.filter((project: Project) => {
+      return !project.school || filter.includeSchool;
+    })
+    .filter((project: Project) => {
+      return allowedLanguages.filter((language) => {
+        return project.languages.includes(valueStringToLanguage(language)!);
+      }).length;
+    });
   }
 
   search(projects: Project[], search: string): Project[] {
