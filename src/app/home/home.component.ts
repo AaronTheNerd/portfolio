@@ -11,10 +11,17 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 })
 export class HomeComponent {
   icons: Icon[] = [
-    new Icon(faTwitter, "https://twitter.com/bargeaaron"),
-    new Icon(faStackOverflow, "https://stackoverflow.com/users/9073813/aaron-barge"),
-    new Icon(faLinkedin, "https://www.linkedin.com/in/aaron-barge-6a75a619a/"),
-    new Icon(faGithub, "https://github.com/AaronTheNerd"),
-    new Icon(faEnvelope, "mailto:bargeaaron@gmail.com")
+    new Icon(
+      faStackOverflow,
+      "https://stackoverflow.com/users/9073813/aaron-barge",
+      "Stack Overflow"),
+    new Icon(
+      faLinkedin,
+      "https://www.linkedin.com/in/aaron-barge-6a75a619a/",
+      "LinkedIn"),
+    new Icon(
+      faGithub,
+      "https://github.com/AaronTheNerd",
+      "GitHub"),
   ];
 }
