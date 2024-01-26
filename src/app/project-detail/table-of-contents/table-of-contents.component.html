@@ -4,7 +4,7 @@
     <li>
       <span></span>
       <span
-        (click)="scroller.scrollToAnchor('top')"
+        (click)="scrollIntoView('top')"
         class="btn text-primary p-0 link">
         (Top)
       </span>
@@ -22,11 +22,11 @@
           "></mat-icon>
       </span>
       <span *ngIf="!section.subsections.length"></span>
-      <span
-        (click)="scroller.scrollToAnchor(section.id)"
+      <a
+        (click)="scrollIntoView(section.id)"
         class="btn text-primary p-0 link position-relative">
         {{ section.title }}
-      </span>
+      </a>
       <div
         class="collapsible-section"
         [ngStyle]="
@@ -48,7 +48,7 @@
             </span>
             <span *ngIf="!subsection.subsections.length"></span>
             <span
-              (click)="scroller.scrollToAnchor(subsection.id)"
+              (click)="scrollIntoView(subsection.id)"
               class="btn text-primary p-0 link">
               {{ subsection.title }}
             </span>
@@ -64,7 +64,7 @@
                 <li *ngFor="let subsubsection of subsubsections">
                   <span class="w-0"></span>
                   <span
-                    (click)="scroller.scrollToAnchor(subsubsection.id)"
+                    (click)="scrollIntoView(subsubsection.id)"
                     class="btn text-primary p-0 link">
                     {{ subsubsection.title }}
                   </span>

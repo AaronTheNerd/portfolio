@@ -5,6 +5,7 @@ import { SectionHeadingComponent } from "../dynamic/section-heading/section-head
 import { SubsectionHeadingComponent } from "../dynamic/subsection-heading/subsection-heading.component";
 import { SubsubsectionHeadingComponent } from "../dynamic/subsubsection-heading/subsubsection-heading.component";
 import { ViewportScroller } from "@angular/common";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-table-of-contents",
@@ -20,7 +21,7 @@ export class TableOfContentsComponent implements OnInit {
     SubsubsectionHeadingComponent
   ];
 
-  constructor(public scroller: ViewportScroller) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.getSections();
@@ -56,5 +57,14 @@ export class TableOfContentsComponent implements OnInit {
           break;
       }
     });
+  }
+
+  scrollIntoView(id: string): void {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest"
+    });
+    // this.router.navigate([], { fragment: id })
   }
 }
