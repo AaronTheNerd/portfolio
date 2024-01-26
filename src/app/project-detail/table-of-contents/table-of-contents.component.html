@@ -1,0 +1,79 @@
+<div id="toc-main" class="p-2 bg-darker">
+  <h1>Contents</h1>
+  <ul class="me-5">
+    <li>
+      <span></span>
+      <span
+        (click)="scroller.scrollToAnchor('top')"
+        class="btn text-primary p-0 link">
+        (Top)
+      </span>
+    </li>
+    <li *ngFor="let section of sections">
+      <span
+        *ngIf="section.subsections.length"
+        (click)="section.collapsed = !section.collapsed"
+        class="btn text-primary p-0">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Expand/Collapse"
+          [fontIcon]="
+            section.collapsed ? 'arrow_right' : 'arrow_drop_down'
+          "></mat-icon>
+      </span>
+      <span *ngIf="!section.subsections.length"></span>
+      <span
+        (click)="scroller.scrollToAnchor(section.id)"
+        class="btn text-primary p-0 link position-relative">
+        {{ section.title }}
+      </span>
+      <div
+        class="collapsible-section"
+        [ngStyle]="
+          section.collapsed ? { 'max-height': '0px' } : { 'max-height': null }
+        "
+        *ngIf="section.subsections as subsections">
+        <ul>
+          <li *ngFor="let subsection of subsections">
+            <span
+              *ngIf="subsection.subsections.length"
+              (click)="subsection.collapsed = !subsection.collapsed"
+              class="btn text-primary p-0">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Expand/Collapse"
+                [fontIcon]="
+                  subsection.collapsed ? 'arrow_right' : 'arrow_drop_down'
+                "></mat-icon>
+            </span>
+            <span *ngIf="!subsection.subsections.length"></span>
+            <span
+              (click)="scroller.scrollToAnchor(subsection.id)"
+              class="btn text-primary p-0 link">
+              {{ subsection.title }}
+            </span>
+            <div
+              class="collapsible-section"
+              [ngStyle]="
+                subsection.collapsed
+                  ? { 'max-height': '0px' }
+                  : { 'max-height': null }
+              "
+              *ngIf="subsection.subsections as subsubsections">
+              <ul>
+                <li *ngFor="let subsubsection of subsubsections">
+                  <span class="w-0"></span>
+                  <span
+                    (click)="scroller.scrollToAnchor(subsubsection.id)"
+                    class="btn text-primary p-0 link">
+                    {{ subsubsection.title }}
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

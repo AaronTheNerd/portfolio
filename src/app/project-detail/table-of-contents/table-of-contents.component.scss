@@ -1,0 +1,39 @@
+@import "../../app.variables.scss";
+
+#toc-main {
+  border-left: 5px solid $accent;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 30px;
+  margin-bottom: 0px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+button {
+  top: 0px;
+  display: inline-block;
+}
+
+li span:nth-child(1) {
+  width: 30px;
+  display: inline-block;
+}
+
+.collapsible-section {
+  -webkit-transition: max-height 0.3s;
+  -moz-transition: max-height 0.3s;
+  -ms-transition: max-height 0.3s;
+  -o-transition: max-height 0.3s;
+  transition: max-height 0.3s;
+  max-height: 250px;
+  overflow: hidden;
+}

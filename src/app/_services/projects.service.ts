@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { Project } from '../_models/project.model';
 import { Language } from '../_enums/language.enum';
+import { Observable, of } from 'rxjs';
+import { SectionHeadingComponent } from '../project-detail/dynamic/section-heading/section-heading.component';
+import { SubsectionHeadingComponent } from '../project-detail/dynamic/subsection-heading/subsection-heading.component';
+import { SubsubsectionHeadingComponent } from '../project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +31,29 @@ export class ProjectsService {
       gitLink: "https://github.com/AaronTheNerd/DiscordBot",
       thumbnails: ["assets/thumbnails/discord.webp"],
       favorite: true,
+      content: [
+        {
+          componentType: SectionHeadingComponent,
+          inputs: {
+            title: "What I Learned",
+            id: "what-i-learned"
+          }
+        },
+        {
+          componentType: SubsectionHeadingComponent,
+          inputs: {
+            title: "Something",
+            id: "something"
+          }
+        },
+        {
+          componentType: SubsubsectionHeadingComponent,
+          inputs: {
+            title: "Something Else",
+            id: "something-else"
+          }
+        }
+      ]
     },
     {
       id: 2,
@@ -43,6 +70,7 @@ export class ProjectsService {
         "assets/thumbnails/sorter/sorter2.jpg",
         "assets/thumbnails/sorter/sorter3.jpg",
       ],
+      content: []
     },
     {
       id: 3,
@@ -58,6 +86,7 @@ export class ProjectsService {
         "assets/thumbnails/triangles/triangle1.jpg",
         "assets/thumbnails/triangles/triangle2.jpg",
       ],
+      content: []
     },
     {
       id: 4,
@@ -71,6 +100,7 @@ export class ProjectsService {
       gitLink: "https://github.com/AaronTheNerd/uInteger",
       thumbnails: [],
       favorite: true,
+      content: []
     },
     {
       id: 5,
@@ -84,6 +114,7 @@ export class ProjectsService {
       gitLink:
         "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/Arduino/AnimatedChristmasTree",
       thumbnails: ["assets/thumbnails/christmas.jpg"],
+      content: []
     },
     {
       id: 7,
@@ -97,6 +128,7 @@ export class ProjectsService {
       gitLink:
         "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/Python/IMDb%20Webscraper",
       thumbnails: [],
+      content: []
     },
     {
       id: 9,
@@ -114,6 +146,7 @@ export class ProjectsService {
         "assets/thumbnails/GoL/GoL2.jpg",
         "assets/thumbnails/GoL/GoL3.jpg",
       ],
+      content: []
     },
     {
       id: 10,
@@ -132,6 +165,7 @@ export class ProjectsService {
       gitLink: "https://github.com/AaronTheNerd/CSCE611/tree/master/lab_jb",
       thumbnails: ["assets/thumbnails/de2-115.png"],
       favorite: true,
+      content: []
     },
     {
       id: 12,
@@ -150,6 +184,7 @@ export class ProjectsService {
       modified: new Date("2019-12-01"),
       gitLink: "https://github.com/AaronTheNerd/csce274_project1",
       thumbnails: [],
+      content: []
     },
     {
       id: 13,
@@ -162,6 +197,7 @@ export class ProjectsService {
       modified: new Date("2020-04-08"),
       gitLink: "https://github.com/AaronTheNerd/csce416ec",
       thumbnails: [],
+      content: []
     },
     {
       id: 14,
@@ -176,6 +212,7 @@ export class ProjectsService {
         "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/MatLab/AudioVisualizer",
       thumbnails: ["assets/thumbnails/visualizer.jpg"],
       favorite: true,
+      content: []
     },
     {
       id: 18,
@@ -189,6 +226,7 @@ export class ProjectsService {
       gitLink:
         "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/C++/MergeSort",
       thumbnails: ["assets/thumbnails/chart.png"],
+      content: []
     },
     {
       id: 20,
@@ -201,6 +239,7 @@ export class ProjectsService {
       modified: new Date("2022-12-29"),
       gitLink: "https://github.com/AaronTheNerd/EllipseApprox",
       thumbnails: ["assets/thumbnails/ellipse-comparison.png"],
+      content: []
     },
   ];
 
@@ -208,5 +247,12 @@ export class ProjectsService {
 
   getProjects(): Project[] {
     return this.projects.slice();
+  }
+
+  getProject(id: number): Observable<Project | undefined> {
+    const project = this.projects.find((project: Project) => {
+      return project.id === id;
+    });
+    return of(project);
   }
 }

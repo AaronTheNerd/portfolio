@@ -23,7 +23,15 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatSelectModule } from "@angular/material/select"
 import { FormsModule } from '@angular/forms';
 import { FilterDialogComponent } from './projects/search-bar/filter-dialog/filter-dialog.component';
-import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { GithubCardComponent } from './project-detail/github-card/github-card.component'
+import { MatCardModule } from '@angular/material/card';
+import { TableOfContentsComponent } from './project-detail/table-of-contents/table-of-contents.component';
+import { SectionHeadingComponent } from './project-detail/dynamic/section-heading/section-heading.component';
+import { SubsectionHeadingComponent } from './project-detail/dynamic/subsection-heading/subsection-heading.component';
+import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubsection-heading/subsubsection-heading.component'
+
 
 @NgModule({
   declarations: [
@@ -37,7 +45,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     ImageCarouselComponent,
     SearchBarComponent,
     ArticleComponent,
-    FilterDialogComponent
+    FilterDialogComponent,
+    ProjectDetailComponent,
+    GithubCardComponent,
+    TableOfContentsComponent,
+    SectionHeadingComponent,
+    SubsectionHeadingComponent,
+    SubsubsectionHeadingComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +68,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     MatSelectModule,
     FormsModule,
     MatCheckboxModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
