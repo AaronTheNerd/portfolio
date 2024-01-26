@@ -30,7 +30,9 @@ import { MatCardModule } from '@angular/material/card';
 import { TableOfContentsComponent } from './project-detail/table-of-contents/table-of-contents.component';
 import { SectionHeadingComponent } from './project-detail/dynamic/section-heading/section-heading.component';
 import { SubsectionHeadingComponent } from './project-detail/dynamic/subsection-heading/subsection-heading.component';
-import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubsection-heading/subsubsection-heading.component'
+import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
+import { FormatDatePipe } from './_pipes/format-date.pipe';
+import { FormatLanguagePipe } from './_pipes/format-language.pipe'
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubse
     TableOfContentsComponent,
     SectionHeadingComponent,
     SubsectionHeadingComponent,
-    SubsubsectionHeadingComponent
+    SubsubsectionHeadingComponent,
+    FormatDatePipe,
+    FormatLanguagePipe
   ],
   imports: [
     BrowserModule,

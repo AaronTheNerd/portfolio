@@ -8,7 +8,7 @@
         class="text-white"
         color="primary"
         [(ngModel)]="data.includeLanguages[item.key]">
-        {{ displayLanguageString(item.key) }}
+        {{ item.key | formatLanguage }}
       </mat-checkbox>
     </li>
   </ul>

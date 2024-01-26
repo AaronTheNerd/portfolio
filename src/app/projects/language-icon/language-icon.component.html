@@ -1,10 +1,10 @@
 <i
   *ngIf="icon !== 'verilog'; else verilog"
-  [matTooltip]="tooltip()"
+  [matTooltip]="icon | formatLanguage"
   class="h3 pe-2 devicon-{{ icon }}-plain colored"></i>
 <ng-template #verilog>
   <svg
-    [matTooltip]="tooltip()"
+    [matTooltip]="icon | formatLanguage"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"

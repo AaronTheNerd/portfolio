@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Filter } from '../../../_models/filter.model';
-import { DisplayLanguageService } from '../../../_services/display-language.service';
 
 @Component({
   selector: 'app-filter-dialog',
@@ -11,17 +10,12 @@ import { DisplayLanguageService } from '../../../_services/display-language.serv
 export class FilterDialogComponent {
 
   constructor(
-    private displayLanguage: DisplayLanguageService,
     public dialogRef: MatDialogRef<FilterDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Filter
   ) {}
 
   onCancelClick(): void {
     this.dialogRef.close();
-  }
-
-  displayLanguageString(language: string): string {
-    return this.displayLanguage.display(language);
   }
 
   enableAllLanguages(data: Filter) {

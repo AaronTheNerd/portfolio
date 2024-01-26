@@ -1,15 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
+import { Language } from '../_enums/language.enum';
 import { TitleCasePipe } from '@angular/common';
 
-import { Language } from '../_enums/language.enum';
-
-@Injectable({
-  providedIn: 'root'
+@Pipe({
+  name: 'formatLanguage'
 })
-export class DisplayLanguageService {
-  constructor() { }
+export class FormatLanguagePipe implements PipeTransform {
 
-  display(lang: Language | string): string {
+  transform(lang: Language | string): string {
     let displayLang = "";
     const titleCase = new TitleCasePipe();
     switch (lang) {
@@ -27,4 +25,5 @@ export class DisplayLanguageService {
     }
     return displayLang;
   }
+
 }

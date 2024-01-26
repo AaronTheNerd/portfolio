@@ -19,7 +19,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="col" [innerHTML]="'Creation date'"></div>
+        <div class="col">
+          {{ project.created | formatDate }}
+        </div>
         <div>
           <span *ngFor="let tag of project.tags; let index = index">
             {{ tag }}{{ index + 1 !== project.tags.length ? "," : "" }}&nbsp;
@@ -31,7 +33,7 @@
       <fa-icon
         *ngIf="project.favorite"
         [icon]="starIcon"
-        matTooltip="This is my favorite {{displayLanguage.display(project.languages[0])}} project"
+        matTooltip="This is my favorite {{project.languages[0] | formatLanguage}} project"
         class="h3 mx-1"
         style="z-index: 100; vertical-align: middle"></fa-icon>
       <a
