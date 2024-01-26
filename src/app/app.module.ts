@@ -32,7 +32,8 @@ import { SectionHeadingComponent } from './project-detail/dynamic/section-headin
 import { SubsectionHeadingComponent } from './project-detail/dynamic/subsection-heading/subsection-heading.component';
 import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
 import { FormatDatePipe } from './_pipes/format-date.pipe';
-import { FormatLanguagePipe } from './_pipes/format-language.pipe'
+import { FormatLanguagePipe } from './_pipes/format-language.pipe';
+import { ParagraphComponent } from './project-detail/dynamic/paragraph/paragraph.component'
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { FormatLanguagePipe } from './_pipes/format-language.pipe'
     SubsectionHeadingComponent,
     SubsubsectionHeadingComponent,
     FormatDatePipe,
-    FormatLanguagePipe
+    FormatLanguagePipe,
+    ParagraphComponent
   ],
   imports: [
     BrowserModule,

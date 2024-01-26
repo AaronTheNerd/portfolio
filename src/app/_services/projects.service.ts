@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { SectionHeadingComponent } from '../project-detail/dynamic/section-heading/section-heading.component';
 import { SubsectionHeadingComponent } from '../project-detail/dynamic/subsection-heading/subsection-heading.component';
 import { SubsubsectionHeadingComponent } from '../project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
+import { ParagraphComponent } from '../project-detail/dynamic/paragraph/paragraph.component';
 
 @Injectable({
   providedIn: 'root'
@@ -35,22 +36,44 @@ export class ProjectsService {
         {
           componentType: SectionHeadingComponent,
           inputs: {
-            title: "What I Learned",
-            id: "what-i-learned"
+            title: "Specifications",
+            id: "specs"
+          }
+        },
+        {
+          componentType: ParagraphComponent,
+          inputs: {
+            text: `Welcome to the Specifications section of my Discord bot! Here, you will
+            discover the various capabilities and functionalities that make interacting
+            with the bot a seamless and customizable experience. From configuring the
+            bot's behavior through a user-friendly JSON file to utilizing a wide range
+            of commands and events, this section will provide you with an in-depth
+            understanding of the bot's features. Whether you're looking to host virtual
+            DnD sessions, listen to music with friends, or add a touch of entertainment,
+            my Discord bot offers a versatile set of tools designed to cater to your
+            specific needs.`
           }
         },
         {
           componentType: SubsectionHeadingComponent,
           inputs: {
-            title: "Something",
-            id: "something"
+            title: "Configuration",
+            id: "configs"
           }
         },
         {
-          componentType: SubsubsectionHeadingComponent,
+          componentType: ParagraphComponent,
           inputs: {
-            title: "Something Else",
-            id: "something-else"
+            text: `With the aim of providing a user-friendly method of customizing my Discord
+            bot, I have offered a simple yet powerful configuration system. By
+            leveraging the flexibility of JSON, users can easily modify and fine-tune
+            the bot's behavior to suit their specific preferences. The JSON
+            configuration file acts as a central hub where various settings, such as
+            default prefixes, default roles for new users, which cogs are active, and
+            more, can be adjusted effortlessly. This intuitive approach to configuration
+            ensures that users have full control over how the bot interacts within their
+            server, allowing for a tailored and personalized experience that aligns
+            perfectly with their needs.`
           }
         }
       ]
