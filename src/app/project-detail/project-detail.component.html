@@ -1,24 +1,24 @@
-<app-article id="top">
-  <div>
-    <p class="display-5 mb-0" [innerText]="project.title"></p>
-    <hr class="mt-0" />
-    <div class="row">
-      <div class="col">
-        <p [innerHTML]="project.description"></p>
-        <br />
-        <app-github-card
-          *ngIf="project.gitLink"
-          [link]="project.gitLink"></app-github-card>
-      </div>
-      <div class="col-md-auto">
-        <app-table-of-contents [content]="project.content"></app-table-of-contents>
-      </div>
+
+<app-table-of-contents
+  [content]="project.content"
+  (widthSet)="width = $event">
+</app-table-of-contents>
+<div class="w-100" style="padding-left: {{width}}px;">
+  <app-article id="top">
+    <div>
+      <p class="display-5 mb-0" [innerText]="project.title"></p>
+      <hr class="mt-0" />
+          <p [innerHTML]="project.description"></p>
+          <br />
+          <app-github-card
+            *ngIf="project.gitLink"
+            [link]="project.gitLink"></app-github-card>
     </div>
-  </div>
-  <div
-    *ngFor="let dynamicComponent of project.content">
-    <ng-container 
-      *ngComponentOutlet="dynamicComponent.componentType; inputs: dynamicComponent.inputs">
-    </ng-container>
-  </div>
-</app-article>
+    <div
+      *ngFor="let dynamicComponent of project.content">
+      <ng-container 
+        *ngComponentOutlet="dynamicComponent.componentType; inputs: dynamicComponent.inputs">
+      </ng-container>
+    </div>
+  </app-article>
+</div>
