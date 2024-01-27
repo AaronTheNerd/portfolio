@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Project } from '../_models/project.model';
 import { Language } from '../_enums/language.enum';
 import { Observable, of } from 'rxjs';
+
 import { SectionHeadingComponent } from '../project-detail/dynamic/section-heading/section-heading.component';
 import { SubsectionHeadingComponent } from '../project-detail/dynamic/subsection-heading/subsection-heading.component';
 import { SubsubsectionHeadingComponent } from '../project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
@@ -18,7 +19,7 @@ export class ProjectsService {
       title: "Discord Bot",
       school: false,
       languages: [Language.py],
-      description: `A Discord bot written in Python which utilizes the <code>discord.py</code> library to play music and assist in virtual D&D sessions in my friend's Discord server. The bot utilizes the <code>youtubeDL</code> library to search and download music from YouTube, which is then played through a voice channel in the server. In addition to music playback, the bot has commands for rolling dice, which can be used to simulate actions and combat in D&D sessions. The bot can roll various types of dice with support for rolling with advantage or disadvantage. Through this project, I gained experience in integrating APIs, programming with Python, and developing a customized bot for multiple use cases as requested by users.`,
+      description: "A Discord bot written in Python which utilizes the <code>discord.py</code> library to play music and assist in virtual D&D sessions in my friend's Discord server. The bot utilizes the <code>youtubeDL</code> library to search and download music from YouTube, which is then played through a voice channel in the server. In addition to music playback, the bot has commands for rolling dice, which can be used to simulate actions and combat in D&D sessions. The bot can roll various types of dice with support for rolling with advantage or disadvantage. Through this project, I gained experience in integrating APIs, programming with Python, and developing a customized bot for multiple use cases as requested by users.",
       tags: [
         "Discord.py",
         "Bot",
@@ -36,44 +37,28 @@ export class ProjectsService {
         {
           componentType: SectionHeadingComponent,
           inputs: {
-            title: "Specifications",
+            title: "What I Learned",
+            id: "learn"
+          }
+        },
+        {
+          componentType: ParagraphComponent,
+          inputs: {
+            text: "This project allowed me to learn a lot about how to work with projects that are frequently used and need to be updated regularly. Throughout the course of iterating on this project I have had to learn how to: host code using an AWS EC2 instance, convert all commands to a new standard, properly integrate with third-party APIs, and quickly respond to failures."
+          }
+        },
+        {
+          componentType: SectionHeadingComponent,
+          inputs: {
+            title: "What it Does",
+            id: "func"
+          }
+        },
+        {
+          componentType: SectionHeadingComponent,
+          inputs: {
+            title: "How it Works",
             id: "specs"
-          }
-        },
-        {
-          componentType: ParagraphComponent,
-          inputs: {
-            text: `Welcome to the Specifications section of my Discord bot! Here, you will
-            discover the various capabilities and functionalities that make interacting
-            with the bot a seamless and customizable experience. From configuring the
-            bot's behavior through a user-friendly JSON file to utilizing a wide range
-            of commands and events, this section will provide you with an in-depth
-            understanding of the bot's features. Whether you're looking to host virtual
-            DnD sessions, listen to music with friends, or add a touch of entertainment,
-            my Discord bot offers a versatile set of tools designed to cater to your
-            specific needs.`
-          }
-        },
-        {
-          componentType: SubsectionHeadingComponent,
-          inputs: {
-            title: "Configuration",
-            id: "configs"
-          }
-        },
-        {
-          componentType: ParagraphComponent,
-          inputs: {
-            text: `With the aim of providing a user-friendly method of customizing my Discord
-            bot, I have offered a simple yet powerful configuration system. By
-            leveraging the flexibility of JSON, users can easily modify and fine-tune
-            the bot's behavior to suit their specific preferences. The JSON
-            configuration file acts as a central hub where various settings, such as
-            default prefixes, default roles for new users, which cogs are active, and
-            more, can be adjusted effortlessly. This intuitive approach to configuration
-            ensures that users have full control over how the bot interacts within their
-            server, allowing for a tailored and personalized experience that aligns
-            perfectly with their needs.`
           }
         }
       ]
