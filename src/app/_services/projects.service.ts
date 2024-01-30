@@ -39,12 +39,46 @@ export class ProjectsService {
           inputs: {
             title: "What I Learned",
             id: "learn"
-          }
+          },
         },
         {
           componentType: ParagraphComponent,
           inputs: {
             text: "This project allowed me to learn a lot about how to work with projects that are frequently used and need to be updated regularly. Throughout the course of iterating on this project I have had to learn how to: host code using an AWS EC2 instance, convert all commands to a new standard, properly integrate with third-party APIs, and quickly respond to failures."
+          }
+        },
+        {
+          componentType: SubsectionHeadingComponent,
+          inputs: {
+            title: "AWS EC2",
+            id: "aws"
+          }
+        },
+        {
+          componentType: SubsectionHeadingComponent,
+          inputs: {
+            title: "Discord.py 2",
+            id: "discord"
+          }
+        },
+        {
+          componentType: SubsubsectionHeadingComponent,
+          inputs: {
+            title: "Interactions",
+            id: "interaction"
+          }
+        },
+        {
+          componentType: ParagraphComponent,
+          inputs: {
+            text: "One major difference between discord.py 1 and discord.py 2 is the replacement of contexts with interactions"
+          }
+        },
+        {
+          componentType: SubsectionHeadingComponent,
+          inputs: {
+            title: "Failure Response",
+            id: "fail"
           }
         },
         {
