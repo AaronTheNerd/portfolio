@@ -4,16 +4,14 @@ import { DynamicContent } from "../../_models/dynamic-content.model";
 import { SectionHeadingComponent } from "../dynamic/section-heading/section-heading.component";
 import { SubsectionHeadingComponent } from "../dynamic/subsection-heading/subsection-heading.component";
 import { SubsubsectionHeadingComponent } from "../dynamic/subsubsection-heading/subsubsection-heading.component";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-table-of-contents",
   templateUrl: "./table-of-contents.component.html",
   styleUrls: ["./table-of-contents.component.scss"],
 })
-export class TableOfContentsComponent implements OnInit, AfterViewInit {
+export class TableOfContentsComponent implements OnInit {
   @Input() content!: DynamicContent[];
-  @Output() widthSet = new EventEmitter<number>();
   @ViewChild("main") main!: ElementRef;
   
   sections: TOCSection[] = [];
@@ -23,14 +21,8 @@ export class TableOfContentsComponent implements OnInit, AfterViewInit {
     SubsubsectionHeadingComponent
   ];
 
-  constructor(private router: Router) {}
-
   ngOnInit(): void {
     this.getSections();
-  }
-
-  ngAfterViewInit(): void {
-    this.widthSet.emit(this.main.nativeElement.offsetWidth);
   }
 
   getSections(): void {
@@ -71,6 +63,5 @@ export class TableOfContentsComponent implements OnInit, AfterViewInit {
       block: "start",
       inline: "nearest"
     });
-    // this.router.navigate([], { fragment: id })
   }
 }
