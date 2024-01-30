@@ -4,14 +4,6 @@
   #main>
   <h1>Contents</h1>
   <ul class="me-3">
-    <li>
-      <span></span>
-      <span
-        (click)="scrollIntoView('top')"
-        class="btn text-primary p-0 link">
-        (Top)
-      </span>
-    </li>
     <li *ngFor="let section of sections">
       <span
         *ngIf="section.subsections.length"
