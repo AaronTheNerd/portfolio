@@ -1,7 +1,6 @@
 <div
-  id="toc-main"
   class="p-2 ps-4 bg-dark"
-  #main>
+  style="max-width: 300px;">
   <h1>Contents</h1>
   <ul class="me-3">
     <li *ngFor="let section of sections">
@@ -24,9 +23,9 @@
       </a>
       <div
         class="collapsible-section"
-        [ngStyle]="
-          section.collapsed ? { 'max-height': '0px' } : { 'max-height': null }
-        "
+        [ngStyle]="{
+          'max-height': section.collapsed ? '0px' : null
+        }"
         *ngIf="section.subsections as subsections">
         <ul>
           <li *ngFor="let subsection of subsections">
@@ -49,11 +48,9 @@
             </span>
             <div
               class="collapsible-section"
-              [ngStyle]="
-                subsection.collapsed
-                  ? { 'max-height': '0px' }
-                  : { 'max-height': null }
-              "
+              [ngStyle]="{
+                'max-height': subsection.collapsed ? '0px' : null
+              }"
               *ngIf="subsection.subsections as subsubsections">
               <ul>
                 <li *ngFor="let subsubsection of subsubsections">
