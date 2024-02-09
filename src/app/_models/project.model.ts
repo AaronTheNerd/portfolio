@@ -3,7 +3,6 @@ import { DynamicContent } from "./dynamic-content.model";
 
 export class Project {
   constructor(
-    public id: number,
     public title: string,
     public school: boolean,
     public languages: Language[],
