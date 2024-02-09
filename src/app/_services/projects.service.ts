@@ -29,7 +29,7 @@ export class ProjectsService {
         "Bug Fixes",
       ],
       created: new Date("2021-09-01"),
-      modified: new Date("2022-11-01"),
+      modified: new Date("2023-10-19"),
       gitLink: "https://github.com/AaronTheNerd/DiscordBot",
       thumbnails: ["assets/thumbnails/discord.webp"],
       favorite: true,
@@ -122,7 +122,7 @@ export class ProjectsService {
       description: `A Python program that generates mesmerizing animations of morphing triangles. The program utilizes a combination of mathematical algorithms and user customization to create unique and visually appealing GIFs.`,
       tags: ["OpenSimplex", "PIL", "ImageMagick", "Delaunay Triangulation"],
       created: new Date("2021-05-01"),
-      modified: new Date("2021-07-01"),
+      modified: new Date("2024-02-08"),
       gitLink: "https://github.com/AaronTheNerd/DynamicBackgrounds",
       thumbnails: [
         "assets/thumbnails/triangles/triangle1.jpg",
@@ -278,11 +278,24 @@ export class ProjectsService {
       description: `A program I designed that aims to generate approximate formulas for the perimeter of an ellipse using a brute-force approach. Initially prototyped in Python, the program has been further developed and optimized in C++ for enhanced performance. By recursively generating stack-based calculators and comparing the results to the known perimeters of ellipses with various dimensions, the program seeks to find the closest approximation for the perimeter of an ellipse. This process involves extensive calculations and rigorous analysis to identify the most accurate formula. By rewriting the program in C++, I have achieved improved efficiency and speed, allowing for far faster computations.`,
       tags: ["Multithreading"],
       created: new Date("2022-10-28"),
-      modified: new Date("2022-12-29"),
+      modified: new Date("2023-07-01"),
       gitLink: "https://github.com/AaronTheNerd/EllipseApprox",
       thumbnails: ["assets/thumbnails/ellipse-comparison.png"],
       content: []
     },
+    {
+      id: 21,
+      title: "Python Project Wizard",
+      school: false,
+      languages: [Language.py],
+      description: ``,
+      tags: ["Test Driven Development", "Unit Testing"],
+      created: new Date("2023-10-25"),
+      modified: new Date("2023-12-29"),
+      gitLink: "https://github.com/AaronTheNerd/PythonProjectWizard",
+      thumbnails: [],
+      content: []
+    }
   ];
 
   constructor() { }
