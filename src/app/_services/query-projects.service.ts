@@ -89,7 +89,7 @@ export class QueryProjectsService {
       if (langB < langA) return 1;
       return 0;
     };
-    const dateSort = (a: Project, b: Project) => {
+    const creationSort = (a: Project, b: Project) => {
       const dateA = a.created;
       const dateB = b.created;
 
@@ -97,6 +97,14 @@ export class QueryProjectsService {
       if (dateB < dateA) return -1;
       return 0;
     };
+    const modifiedSort = (a: Project, b: Project) => {
+      const dateA = a.modified;
+      const dateB = b.modified;
+
+      if (dateA < dateB) return 1;
+      if (dateB < dateA) return -1;
+      return 0;
+    }
     
     switch (sort) {
       case Sort.title_a_z:
@@ -108,7 +116,9 @@ export class QueryProjectsService {
       case Sort.lang_z_a:
         return projects.sort(languageSort).reverse();
       case Sort.newest:
-        return projects.sort(dateSort);
+        return projects.sort(creationSort);
+      case Sort.modified:
+        return projects.sort(modifiedSort);
     }
     return projects;
   }

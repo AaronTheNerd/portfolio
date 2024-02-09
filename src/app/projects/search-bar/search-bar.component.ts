@@ -13,9 +13,10 @@ import { FilterDialogComponent } from './filter-dialog/filter-dialog.component';
 })
 export class SearchBarComponent implements OnInit{
   sortOptions: Sort[] = [
+    Sort.newest,
+    Sort.modified,
     Sort.lang_a_z,
     Sort.lang_z_a,
-    Sort.newest,
     Sort.title_a_z,
     Sort.title_z_a,
   ];

@@ -4,4 +4,5 @@ export enum Sort {
   lang_a_z = "Language: A-Z",
   lang_z_a = "Language: Z-A",
   newest = "Newest Projects",
+  modified = "Recently Modified"
 }
