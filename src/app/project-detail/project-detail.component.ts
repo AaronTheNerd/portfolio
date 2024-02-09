@@ -25,8 +25,8 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id: number = Number(this.route.snapshot.paramMap.get("id"));
-    this.projectsService.getProject(id)
+    const title: string = this.route.snapshot.paramMap.get("name")!;
+    this.projectsService.getProjectByTitle(title)
     .subscribe((project) => {
       if (!project) {
         this.goBack();

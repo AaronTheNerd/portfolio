@@ -1,10 +1,15 @@
-import { EventEmitter, Injectable, OnDestroy, Output, inject } from '@angular/core';
+import { EventEmitter, Injectable, OnDestroy, Output, Type, inject } from '@angular/core';
 
 import { Project } from '../_models/project.model';
 import { Observable, Subscription, of } from 'rxjs';
 import { DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Language, valueStringToLanguage } from '../_enums/language.enum';
-import { DocumentEntry, ProjectDocument } from '../_models/project-document.model';
+import { DocumentContentEntry, DocumentEntry, ProjectDocument } from '../_models/project-document.model';
+import { DynamicContent } from '../_models/dynamic-content.model';
+import { ParagraphComponent } from '../project-detail/dynamic/paragraph/paragraph.component';
+import { SectionHeadingComponent } from '../project-detail/dynamic/section-heading/section-heading.component';
+import { SubsectionHeadingComponent } from '../project-detail/dynamic/subsection-heading/subsection-heading.component';
+import { SubsubsectionHeadingComponent } from '../project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
 
 
 @Injectable({
@@ -20,7 +25,6 @@ export class ProjectsService implements OnDestroy {
     const itemCollection = collection(this.firestore, "projects");
     const subscription = collectionData(itemCollection).subscribe((data: DocumentData) => {
       this.projects = this._cleanCollectionData(data);
-      console.log(this.projects);
       this.projectsChanged.next(this.getProjects());
     });
     this.subscriptions.push(subscription);
@@ -30,9 +34,9 @@ export class ProjectsService implements OnDestroy {
     return this.projects.slice();
   }
 
-  getProject(id: number): Observable<Project | undefined> {
+  getProjectByTitle(title: string): Observable<Project | undefined> {
     const project = this.projects.find((project: Project) => {
-      return project.id === id;
+      return project.title === title;
     });
     return of(project);
   }
@@ -48,7 +52,6 @@ export class ProjectsService implements OnDestroy {
 
   private _cleanRawProject(rawProject: DocumentEntry): Project {
     return new Project(
-      0,
       rawProject.title,
       rawProject.school,
       rawProject.languages.map((languageValue: string) => {
@@ -59,10 +62,33 @@ export class ProjectsService implements OnDestroy {
       rawProject.modified.toDate(),
       rawProject.created.toDate(),
       rawProject.thumbnails,
-      [],
+      rawProject.content.map((content: DocumentContentEntry) => {
+        return this._cleanContentEntry(content);
+      }),
       rawProject.gitLink ?? undefined,
       rawProject.favorite ? true : undefined
     );
+  }
+
+  private _cleanContentEntry(content: DocumentContentEntry): DynamicContent {
+    return {
+      componentType: this._parseComponentType(content.componentType),
+      inputs: content.inputs
+    }
+  }
+
+  private _parseComponentType(componentType: string): Type<any> {
+    switch (componentType) {
+      case "ParagraphComponent":
+        return ParagraphComponent;
+      case "SectionHeadingComponent":
+        return SectionHeadingComponent;
+      case "SubsectionHeadingComponent":
+        return SubsectionHeadingComponent;
+      case "SubsubsectionHeadingComponent":
+        return SubsubsectionHeadingComponent;
+    }
+    throw new Error(`Unexpected componentType: ${componentType}`);
   }
 
   ngOnDestroy(): void {
