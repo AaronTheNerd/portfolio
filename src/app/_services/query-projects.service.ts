@@ -1,29 +1,33 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 
 import { Project } from '../_models/project.model';
 import { ProjectsService } from './projects.service';
 import { ProjectQuery, defaultQuery } from '../_models/project-query.model';
 import { Filter } from '../_models/filter.model';
 import { Sort } from '../_enums/sort.enum';
-import { Language, valueStringToLanguage } from '../_enums/language.enum'; 
+import { valueStringToLanguage } from '../_enums/language.enum'; 
 
 @Injectable({
   providedIn: 'root'
 })
-export class QueryProjectsService {
+export class QueryProjectsService implements OnDestroy {
   searchResultsChanged = new Subject<Project[]>();
   queryChanged = new Subject<ProjectQuery>();
   searchResults!: Project[];
-  currentQuery: ProjectQuery; 
+  currentQuery: ProjectQuery;
+  subscriptions: Subscription[] = [];
 
   constructor(private projectsService: ProjectsService) {
     this.currentQuery = defaultQuery();
-    this._query();
-    this.queryChanged.subscribe((query: ProjectQuery) => {
+    this._query(this.projectsService.getProjects());
+    this.subscriptions.push(this.queryChanged.subscribe((query: ProjectQuery) => {
       this.currentQuery = query;
-      this._query();
-    });
+      this._query(this.projectsService.getProjects());
+    }));
+    this.subscriptions.push(this.projectsService.projectsChanged.subscribe((projects: Project[]) => {
+      this._query(projects);
+    }));
   }
 
   getQuery(): ProjectQuery {
@@ -34,8 +38,8 @@ export class QueryProjectsService {
     return this.searchResults.slice();
   }
 
-  _query(): void {
-    let results = this.projectsService.getProjects();
+  _query(projects: Project[]): void {
+    let results = projects;
     results = this.filter(results, this.currentQuery.filter);
     results = this.search(results, this.currentQuery.search);
     results = this.sort(results, this.currentQuery.sort);
@@ -121,5 +125,9 @@ export class QueryProjectsService {
         return projects.sort(modifiedSort);
     }
     return projects;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }

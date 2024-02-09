@@ -34,6 +34,9 @@ import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubse
 import { FormatDatePipe } from './_pipes/format-date.pipe';
 import { FormatLanguagePipe } from './_pipes/format-language.pipe';
 import { ParagraphComponent } from './project-detail/dynamic/paragraph/paragraph.component'
+import { environment } from '../environments/environment';
+import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
+import { getFirestore, provideFirestore } from "@angular/fire/firestore"
 
 
 @NgModule({
@@ -75,6 +78,8 @@ import { ParagraphComponent } from './project-detail/dynamic/paragraph/paragraph
     FormsModule,
     MatCheckboxModule,
     MatCardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]
