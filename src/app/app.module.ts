@@ -39,6 +39,7 @@ import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore"
 import { provideAuth, getAuth } from "@angular/fire/auth";
 import { LoginComponent } from './login/login.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { LoginComponent } from './login/login.component';
     FormatDatePipe,
     FormatLanguagePipe,
     ParagraphComponent,
-    LoginComponent
+    LoginComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

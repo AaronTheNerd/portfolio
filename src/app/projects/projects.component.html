@@ -1,9 +1,7 @@
 <app-article>
   <p class="display-4">Projects</p>
   @if (loading) {
-    <div class="custom-loader-wrapper">
-      <div class="custom-loader"></div>
-    </div>
+    <app-spinner></app-spinner>
   } @else {
     <app-search-bar></app-search-bar>
     <div
