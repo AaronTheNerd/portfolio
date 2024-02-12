@@ -1,11 +1,17 @@
 <app-article>
   <p class="display-4">Projects</p>
-  <app-search-bar></app-search-bar>
-  <div
-    *ngFor="let proj of projects; index as i"
-    class="my-4">
-    <app-project-search-result 
-      [project]="proj">
-    </app-project-search-result>
-  </div>
+  @if (loading) {
+    <div class="custom-loader-wrapper">
+      <div class="custom-loader"></div>
+    </div>
+  } @else {
+    <app-search-bar></app-search-bar>
+    <div
+      *ngFor="let proj of projects; index as i"
+      class="my-4">
+      <app-project-search-result 
+        [project]="proj">
+      </app-project-search-result>
+    </div>
+  }
 </app-article>

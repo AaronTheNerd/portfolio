@@ -1,6 +1,6 @@
 import { Injectable, Type, inject } from '@angular/core';
 import { DocumentData, Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { Project } from '../_models/project.model';
 import { DocumentContentEntry, DocumentEntry, ProjectDocument } from '../_models/project-document.model';
 import { valueStringToLanguage } from '../_enums/language.enum';
@@ -15,6 +15,7 @@ import { DynamicContent } from '../_models/dynamic-content.model';
 })
 export class FirestoreService {
   firestore: Firestore = inject(Firestore);
+  loading: boolean = true;
 
   constructor() {}
 
@@ -23,6 +24,9 @@ export class FirestoreService {
     return collectionData(itemCollection).pipe(
       map((data: DocumentData) => {
         return this._cleanCollectionData(data);
+      }),
+      tap(() => {
+        this.loading = false;
       })
     );
   }
