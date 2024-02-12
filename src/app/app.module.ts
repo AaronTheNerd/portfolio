@@ -37,6 +37,8 @@ import { ParagraphComponent } from './project-detail/dynamic/paragraph/paragraph
 import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore"
+import { provideAuth, getAuth } from "@angular/fire/auth";
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -60,7 +62,8 @@ import { getFirestore, provideFirestore } from "@angular/fire/firestore"
     SubsubsectionHeadingComponent,
     FormatDatePipe,
     FormatLanguagePipe,
-    ParagraphComponent
+    ParagraphComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -79,9 +82,11 @@ import { getFirestore, provideFirestore } from "@angular/fire/firestore"
     MatCheckboxModule,
     MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
