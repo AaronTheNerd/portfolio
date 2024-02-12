@@ -1,26 +1,31 @@
-<div class="row w-100">
-  <div class="col-auto">
-    <app-table-of-contents
-      [content]="project.content">
-    </app-table-of-contents>
+@if (loading) {
+  <app-spinner></app-spinner>
+} @else {
+  <div class="row w-100">
+    <div class="col-auto">
+      <app-table-of-contents
+        [content]="project.content">
+      </app-table-of-contents>
+    </div>
+    <div class="col">
+      <app-article id="top">
+        <div>
+          <p class="display-5 mb-0" [innerText]="project.title"></p>
+          <hr class="mt-0" />
+              <p [innerHTML]="project.description"></p>
+              <br />
+              <app-github-card
+                *ngIf="project.gitLink"
+                [link]="project.gitLink"></app-github-card>
+        </div>
+        <div
+          *ngFor="let dynamicComponent of project.content">
+          <ng-container 
+            *ngComponentOutlet="dynamicComponent.componentType; inputs: dynamicComponent.inputs">
+          </ng-container>
+        </div>
+      </app-article>
+    </div>
   </div>
-  <div class="col">
-    <app-article id="top">
-      <div>
-        <p class="display-5 mb-0" [innerText]="project.title"></p>
-        <hr class="mt-0" />
-            <p [innerHTML]="project.description"></p>
-            <br />
-            <app-github-card
-              *ngIf="project.gitLink"
-              [link]="project.gitLink"></app-github-card>
-      </div>
-      <div
-        *ngFor="let dynamicComponent of project.content">
-        <ng-container 
-          *ngComponentOutlet="dynamicComponent.componentType; inputs: dynamicComponent.inputs">
-        </ng-container>
-      </div>
-    </app-article>
-  </div>
-</div>
+}
+

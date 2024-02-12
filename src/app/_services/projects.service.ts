@@ -1,7 +1,7 @@
-import { EventEmitter, Injectable, OnDestroy, Output, Type, inject } from '@angular/core';
+import { EventEmitter, Injectable, OnDestroy, Output } from '@angular/core';
 
 import { Project } from '../_models/project.model';
-import { Observable, Subscription, of } from 'rxjs';
+import { Observable, Subscription, map, of } from 'rxjs';
 import { FirestoreService } from './firestore.service';
 
 
@@ -28,6 +28,16 @@ export class ProjectsService implements OnDestroy {
   }
 
   getProjectByTitle(title: string): Observable<Project | undefined> {
+    if (this.firestoreService.loading) {
+      return this.firestoreService.getProjects().pipe(
+        map((projects: Project[]) => {
+          const project = projects.find((project: Project) => {
+            return project.title === title;
+          });
+          return project;
+        })
+      );
+    }
     const project = this.projects.find((project: Project) => {
       return project.title === title;
     });
