@@ -38,7 +38,7 @@ import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
 import { getFirestore, provideFirestore } from "@angular/fire/firestore"
 import { provideAuth, getAuth } from "@angular/fire/auth";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './admin/login/login.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 
 
