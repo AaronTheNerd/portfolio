@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectsService } from '../_services/projects.service';
 import { Project } from '../_models/project.model';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,9 +11,10 @@ import { Location } from '@angular/common';
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
-export class ProjectDetailComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit, OnDestroy {
   project!: Project;
   loading: boolean = true;
+  subscriptions: Subscription[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +28,7 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const title: string = this.route.snapshot.paramMap.get("name")!;
-    this.projectsService.getProjectByTitle(title)
+    const subscription = this.projectsService.getProjectByTitle(title)
     .subscribe((project) => {
       if (!project) {
         this.goBack();
@@ -34,6 +36,13 @@ export class ProjectDetailComponent implements OnInit {
       }
       this.project = project;
       this.loading = false;
+    });
+    this.subscriptions.push(subscription);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => {
+      subscription.unsubscribe();
     });
   }
 }
