@@ -31,17 +31,17 @@ export class ProjectsService implements OnDestroy {
     if (this.firestoreService.loading) {
       return this.firestoreService.getProjects().pipe(
         map((projects: Project[]) => {
-          const project = projects.find((project: Project) => {
-            return project.title === title;
-          });
-          return project;
+          return this._findByName(projects, title);
         })
       );
     }
-    const project = this.projects.find((project: Project) => {
+    return of(this._findByName(this.projects, title));
+  }
+
+  private _findByName(projects: Project[], title: string): Project | undefined {
+    return projects.find((project: Project) => {
       return project.title === title;
     });
-    return of(project);
   }
 
   ngOnDestroy(): void {
