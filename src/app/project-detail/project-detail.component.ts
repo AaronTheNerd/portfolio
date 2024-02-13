@@ -12,7 +12,6 @@ import { Location } from '@angular/common';
 })
 export class ProjectDetailComponent implements OnInit {
   project!: Project;
-  width: number = 0;
   loading: boolean = true;
 
   constructor(
