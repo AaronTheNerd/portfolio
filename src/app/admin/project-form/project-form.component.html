@@ -1,0 +1,69 @@
+<div class="container">
+  <h1 class="display-3 mt-3">Project Form</h1>
+</div>
+<app-article>
+  <form>
+    <div class="form-group mb-2">
+      <label class="form-label" for="title">
+        Title
+      </label>
+      <input
+        class="form-control bg-darker border-0 text-white"
+        id="title"
+        type="text"
+        style="width: 15em"
+        name="title"
+        [(ngModel)]="raw_project.title">
+    </div>
+    <div class="form-group mb-2">
+      <label for="description" class="form-label">Description</label>
+      <textarea 
+        class="form-control bg-darker border-0 text-white"
+        name="description"
+        id="description"
+        cols="30" rows="10"
+        [(ngModel)]="raw_project.description"></textarea>
+    </div>
+    <div class="form-group mb-2">
+      <label for="languages" class="form-label">Languages</label>
+      <mat-select
+        class="form-control bg-darker border-0 text-white"
+        name="languages"
+        id="languages"
+        [(ngModel)]="raw_project.languages"
+        multiple>
+        @for(language of languages_list; track language) {
+          <mat-option [value]="language">{{display_language(language)}}</mat-option>
+        }
+      </mat-select>
+    </div>
+    <div class="form-check">
+      <label class="form-label" for="school">
+        University?
+      </label>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="school"
+        name="school"
+        [(ngModel)]="raw_project.school">
+    </div>
+    <div class="form-check">
+      <label class="form-label" for="favorite">
+        Favorite?
+      </label>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="favorite"
+        name="favorite"
+        [(ngModel)]="raw_project.favorite">
+    </div>
+  </form>
+</app-article>
+<hr>
+<app-article>
+  <app-project-search-result [project]="project"></app-project-search-result>
+</app-article>
+<hr>
+<app-project-detail [project]="project"></app-project-detail>

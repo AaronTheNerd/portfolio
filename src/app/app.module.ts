@@ -40,6 +40,7 @@ import { getFirestore, provideFirestore } from "@angular/fire/firestore"
 import { provideAuth, getAuth } from "@angular/fire/auth";
 import { LoginComponent } from './admin/login/login.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ProjectFormComponent } from './admin/project-form/project-form.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     FormatLanguagePipe,
     ParagraphComponent,
     LoginComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,
