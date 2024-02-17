@@ -22,3 +22,19 @@ export class DocumentEntry {
 }
 
 export type ProjectDocument = DocumentEntry[];
+
+export function default_project(): DocumentEntry {
+  return new DocumentEntry(
+    "",
+    false,
+    [],
+    "",
+    [],
+    Timestamp.now(),
+    Timestamp.now(),
+    [],
+    [],
+    null,
+    false
+  );
+}
