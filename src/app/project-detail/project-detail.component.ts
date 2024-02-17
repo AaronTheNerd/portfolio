@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectsService } from '../_services/projects.service';
 import { Project } from '../_models/project.model';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   styleUrl: './project-detail.component.scss'
 })
 export class ProjectDetailComponent implements OnInit, OnDestroy {
-  project!: Project;
+  @Input() project: Project | null = null;
   loading: boolean = true;
   subscriptions: Subscription[] = [];
 
@@ -26,7 +26,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.location.back();
   }
 
-  ngOnInit(): void {
+  determineProjectOnPageLoad(): void {
     const title: string = this.route.snapshot.paramMap.get("name")!;
     const subscription = this.projectsService.getProjectByTitle(title)
     .subscribe((project) => {
@@ -38,6 +38,14 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
       this.loading = false;
     });
     this.subscriptions.push(subscription);
+  }
+
+  ngOnInit(): void {
+    if (!this.project) {
+      this.determineProjectOnPageLoad();
+    } else {
+      this.loading = false;
+    }
   }
 
   ngOnDestroy(): void {
