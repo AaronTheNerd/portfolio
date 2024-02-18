@@ -24,19 +24,11 @@
         cols="30" rows="10"
         [(ngModel)]="raw_project.description"></textarea>
     </div>
-    <div class="form-group mb-2">
-      <label for="languages" class="form-label">Languages</label>
-      <mat-select
-        class="form-control bg-darker border-0 text-white"
-        name="languages"
-        id="languages"
-        [(ngModel)]="raw_project.languages"
-        multiple>
-        @for(language of languages_list; track language) {
-          <mat-option [value]="language">{{display_language(language)}}</mat-option>
-        }
-      </mat-select>
-    </div>
+    <app-multi-input
+      id="languages"
+      [options]="languages_list"
+      [display]="display_language"
+      [(value)]="raw_project.languages"></app-multi-input>
     <div class="row">
       <div class="col-auto">
         <app-timestamp-input
@@ -49,8 +41,6 @@
           [(value)]="raw_project.modified"></app-timestamp-input>
       </div>
     </div>
-    
-    
     <div class="form-check">
       <label class="form-label" for="school">
         University?

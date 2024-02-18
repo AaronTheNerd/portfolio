@@ -45,6 +45,7 @@ import { MultiInputComponent } from './admin/project-form/multi-input/multi-inpu
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TimestampInputComponent } from './admin/project-form/timestamp-input/timestamp-input.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { TimestampInputComponent } from './admin/project-form/timestamp-input/ti
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatAutocompleteModule
   ],
   providers: [
     MatDatepickerModule

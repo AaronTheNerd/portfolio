@@ -23,7 +23,7 @@ export class ProjectFormComponent {
     Language.arduino,
     Language.verilog
   ];
-  private formatLanguage: FormatLanguagePipe;
+  private formatLanguage = new FormatLanguagePipe();
   private raw_project_differ: KeyValueDiffer<string, any>;
 
   constructor(
@@ -32,7 +32,6 @@ export class ProjectFormComponent {
   ) {
     this.project = this.clean_raw();
     this.raw_project_differ = this.differs.find(this.raw_project).create();
-    this.formatLanguage = new FormatLanguagePipe();
   }
 
   clean_raw(): Project {
@@ -41,7 +40,7 @@ export class ProjectFormComponent {
     );
   }
 
-  display_language(language: Language): string {
+  public display_language = (language: string): string => {
     return this.formatLanguage.transform(language);
   }
 
