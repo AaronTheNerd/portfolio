@@ -2,7 +2,6 @@ import { Component, KeyValueDiffer, KeyValueDiffers } from '@angular/core';
 import { Project } from '../../_models/project.model';
 import { DocumentEntry, default_project } from '../../_models/project-document.model';
 import { ProjectConverterService } from '../../_services/project-converter.service';
-import { FormControl } from '@angular/forms';
 import { Language } from '../../_enums/language.enum';
 import { FormatLanguagePipe } from '../../_pipes/format-language.pipe';
 
