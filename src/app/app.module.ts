@@ -41,6 +41,10 @@ import { provideAuth, getAuth } from "@angular/fire/auth";
 import { LoginComponent } from './admin/login/login.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ProjectFormComponent } from './admin/project-form/project-form.component';
+import { MultiInputComponent } from './admin/project-form/multi-input/multi-input.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { TimestampInputComponent } from './admin/project-form/timestamp-input/timestamp-input.component';
 
 
 @NgModule({
@@ -67,7 +71,9 @@ import { ProjectFormComponent } from './admin/project-form/project-form.componen
     ParagraphComponent,
     LoginComponent,
     SpinnerComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    MultiInputComponent,
+    TimestampInputComponent
   ],
   imports: [
     BrowserModule,
@@ -88,9 +94,12 @@ import { ProjectFormComponent } from './admin/project-form/project-form.componen
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-

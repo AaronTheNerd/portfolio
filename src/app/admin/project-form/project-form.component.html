@@ -37,6 +37,12 @@
         }
       </mat-select>
     </div>
+    <app-timestamp-input
+      id="created"
+      [(value)]="raw_project.created"></app-timestamp-input>
+    <app-timestamp-input
+      id="modified"
+      [(value)]="raw_project.modified"></app-timestamp-input>
     <div class="form-check">
       <label class="form-label" for="school">
         University?
