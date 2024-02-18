@@ -9,12 +9,12 @@
       </span>
     </h1>
     <div class="pb-3" [innerHTML]="project.description | truncate : 200"></div>
-    <div *ngIf="project.tags.length" class="row pb-2">
+    <div class="row pb-2">
       <div class="col-auto">
         <div>
           <b>Creation Date:</b>
         </div>
-        <div>
+        <div *ngIf="project.tags.length">
           <b>Tools Used:</b>
         </div>
       </div>
@@ -22,7 +22,7 @@
         <div class="col">
           {{ project.created | formatDate }}
         </div>
-        <div>
+        <div *ngIf="project.tags.length">
           <span *ngFor="let tag of project.tags; let index = index">
             {{ tag }}{{ index + 1 !== project.tags.length ? "," : "" }}&nbsp;
           </span>
