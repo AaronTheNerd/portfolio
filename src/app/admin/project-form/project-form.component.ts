@@ -44,6 +44,10 @@ export class ProjectFormComponent {
     return this.formatLanguage.transform(language);
   }
 
+  public thumbnail_validator = (value: string): boolean => {
+    return value.startsWith("assets/thumbnails/");
+  }
+
   ngDoCheck(): void {
     const changes = this.raw_project_differ.diff(this.raw_project);
     if (changes) {

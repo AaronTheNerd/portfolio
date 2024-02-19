@@ -9,22 +9,26 @@ export class MultiInputComponent {
   @Input() id!: string;
   @Input() options: string[] = [];
   @Input() display = (a: string) => { return a; };
+  @Input() customValidator = (a: string) => { return true; };
+  @Input() help: string = "";
   @Input() value: string[] = [];
   @Output() valueChange = new EventEmitter<string[]>();
   input_value: string = "";
 
   add_value() {
-    if (this.is_valid(this.input_value)) {
-      this.value.push(this.input_value);
-      this.valueChange.emit(this.value.slice());
+    if (!this.is_valid(this.input_value)) {
+      return;
     }
+    this.value.push(this.input_value);
+    this.valueChange.emit(this.value.slice());
     this.input_value = "";
   }
 
   is_valid(input_value: string): boolean {
     return !this.value.includes(input_value)
       && input_value !== ""
-      && (this.options.length ? this.options.includes(input_value) : true);
+      && (this.options.length ? this.options.includes(input_value) : true)
+      && this.customValidator(input_value);
   }
 
   remove_value(index: number) {

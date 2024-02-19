@@ -40,6 +40,12 @@
       </div>
     </div>
     <app-multi-input
+      id="thumbnails"
+      [(value)]="raw_project.thumbnails"
+      [customValidator]="thumbnail_validator"
+      help="Value should start with 'assets/thumbnails/'.">
+      </app-multi-input>
+    <app-multi-input
       id="tags"
       [(value)]="raw_project.tags"></app-multi-input>
     <div class="form-check">
