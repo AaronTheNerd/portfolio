@@ -31,7 +31,7 @@ export class ProjectConverterService {
         return this._cleanContentEntry(content);
       }),
       rawProject.gitLink ?? undefined,
-      rawProject.favorite ? true : undefined
+      rawProject.favorite
     );
   }
 

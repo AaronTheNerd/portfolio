@@ -12,7 +12,7 @@ export class Project {
     public created: Date,
     public thumbnails: string[],
     public content: DynamicContent[],
-    public gitLink?: string,
-    public favorite?: boolean
+    public gitLink: string,
+    public favorite: boolean
   ) {}
 }

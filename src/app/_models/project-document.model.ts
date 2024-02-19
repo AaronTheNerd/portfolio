@@ -16,7 +16,7 @@ export class DocumentEntry {
     public created: Timestamp,
     public thumbnails: string[],
     public content: DocumentContentEntry[],
-    public gitLink: string | null,
+    public gitLink: string,
     public favorite: boolean
   ) {}
 }
@@ -34,7 +34,7 @@ export function default_project(): DocumentEntry {
     Timestamp.now(),
     [],
     [],
-    null,
+    "",
     false
   );
 }
