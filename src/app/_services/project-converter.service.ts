@@ -30,7 +30,7 @@ export class ProjectConverterService {
       rawProject.content.map((content: DocumentContentEntry) => {
         return this._cleanContentEntry(content);
       }),
-      rawProject.gitLink ?? undefined,
+      rawProject.gitLink,
       rawProject.favorite
     );
   }
