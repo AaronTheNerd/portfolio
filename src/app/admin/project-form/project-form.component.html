@@ -9,7 +9,7 @@
         class="form-control bg-darker border-0 text-white"
         id="title"
         type="text"
-        style="width: 15em"
+        style="width: 20em"
         name="title"
         [(ngModel)]="raw_project.title">
     </div>
@@ -27,6 +27,18 @@
       [options]="languages_list"
       [display]="display_language"
       [(value)]="raw_project.languages"></app-multi-input>
+    <div class="form-group mb-2">
+      <label class="form-label" for="gitLink">
+        GitHub Link
+      </label>
+      <input
+        class="form-control bg-darker border-0 text-white"
+        id="gitLink"
+        type="text"
+        style="width: 25em"
+        name="gitLink"
+        [(ngModel)]="raw_project.gitLink">
+    </div>
     <div class="row">
       <div class="col-auto">
         <app-timestamp-input
