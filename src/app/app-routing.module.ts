@@ -7,6 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { LoginComponent } from './admin/login/login.component';
 import { ProjectFormComponent } from './admin/project-form/project-form.component';
+import { ProjectOperation } from './_enums/project_operation.enum';
 
 const routes: Routes = [
   {
@@ -25,11 +26,21 @@ const routes: Routes = [
   {
     path: "projects/new",
     component: ProjectFormComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      operation: ProjectOperation.add
+    }
   },
   {
     path: "projects/:name",
     component: ProjectDetailComponent
+  },
+  {
+    path: "projects/:name/edit",
+    component: ProjectFormComponent,
+    data: {
+      operation: ProjectOperation.edit
+    }
   },
   {
     path: "login",
