@@ -46,6 +46,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TimestampInputComponent } from './admin/project-form/timestamp-input/timestamp-input.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ContentInputComponent } from './admin/project-form/content-input/content-input.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SpinnerComponent,
     ProjectFormComponent,
     MultiInputComponent,
-    TimestampInputComponent
+    TimestampInputComponent,
+    ContentInputComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +100,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     provideAuth(() => getAuth()),
     MatDatepickerModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    DragDropModule
   ],
   providers: [
     MatDatepickerModule

@@ -1,0 +1,48 @@
+<h3>Content</h3>
+<div
+  cdkDropList
+  (cdkDropListDropped)="drop($event)"
+  style="width: 30em">
+  @for (entry of content; track entry; let index = $index) {
+    <div class="row rounded bg-darker text-white p-3 px-1 mb-3" cdkDrag>
+      <div class="col-auto text-primary">
+        <div cdkDragHandle>
+          <mat-icon>drag_indicator</mat-icon>
+        </div>
+        <div (click)="remove(index)">
+          <mat-icon>close</mat-icon>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group mb-2">
+          <mat-select
+            class="form-control bg-white border-0 text-black"
+            id="type{{index}}"
+            (selectionChange)="change_selection(index, $event.value)"
+            [value]="index_of_component(content[index].componentType)">
+            @for (type of dynamicComponents; track type.componentType; let type_index = $index) {
+              <mat-option [value]="type_index">{{type.componentType}}</mat-option>
+            }
+          </mat-select>
+        </div>
+        @for (input of content[index].inputs | keyvalue; track input.key) {
+          <div class="form-group mb-2">
+            <label for="{{input.key}}{{index}}" class="form-label">
+              {{input.key | titlecase}}
+            </label>
+            <input
+              class="form-control bg-white border-0 text-black"
+              type="text"
+              name="{{input.key}}{{index}}"
+              id="{{input.key}}{{index}}"
+              [ngModel]="content[index].inputs[input.key]"
+              (ngModelChange)="set_input_value(index, input.key, $event)">
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>
+<button class="btn btn-primary" (click)="add_entry()">
+  Add
+</button>
