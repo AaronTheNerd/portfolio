@@ -2,9 +2,10 @@
 <div
   cdkDropList
   (cdkDropListDropped)="drop($event)"
-  style="width: 30em">
+  style="width: 30em; height: 100vh; overflow-y: scroll;"
+  class="px-5 py-1 bg-darker">
   @for (entry of content; track entry; let index = $index) {
-    <div class="row rounded bg-darker text-white p-3 px-1 mb-3" cdkDrag>
+    <div class="row rounded bg-dark text-white p-3 px-1 mb-3" cdkDrag>
       <div class="col-auto text-primary">
         <div cdkDragHandle>
           <mat-icon>drag_indicator</mat-icon>
@@ -43,6 +44,6 @@
     </div>
   }
 </div>
-<button class="btn btn-primary" (click)="add_entry()">
+<button class="btn btn-primary mt-3" (click)="add_entry()">
   Add
 </button>
