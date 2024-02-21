@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="col">
-        <div class="col">
-          {{ project.created | formatDate }}
+        <div>
+          {{ project.created | formatDate }} - {{ project.modified | formatDate }}
         </div>
         <div *ngIf="project.tags.length">
           <span *ngFor="let tag of project.tags; let index = index">
