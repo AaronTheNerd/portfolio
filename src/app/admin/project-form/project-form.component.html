@@ -83,6 +83,9 @@
         [(ngModel)]="raw_project.favorite">
     </div>
     <app-content-input [(content)]="raw_project.content"></app-content-input>
+    <div class="mt-5">
+      <button class="btn btn-primary" (click)="submit_project()">Submit</button>
+    </div>
   </form>
 </app-article>
 <hr>

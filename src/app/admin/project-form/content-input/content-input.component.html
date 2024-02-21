@@ -2,7 +2,7 @@
 <div
   cdkDropList
   (cdkDropListDropped)="drop($event)"
-  style="width: 30em; height: 100vh; overflow-y: scroll;"
+  style="width: 30em; max-height: 100vh; overflow-y: scroll;"
   class="px-5 py-1 bg-darker">
   @for (entry of content; track entry; let index = $index) {
     <div class="row rounded bg-dark text-white p-3 px-1 mb-3" cdkDrag>
