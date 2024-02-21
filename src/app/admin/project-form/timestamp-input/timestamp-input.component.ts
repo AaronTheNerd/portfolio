@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Timestamp } from '@angular/fire/firestore';
 
 @Component({
@@ -6,10 +6,10 @@ import { Timestamp } from '@angular/fire/firestore';
   templateUrl: './timestamp-input.component.html',
   styleUrl: './timestamp-input.component.scss'
 })
-export class TimestampInputComponent {
+export class TimestampInputComponent implements OnInit {
   @Input() id!: string;
   @Input() value: Timestamp = Timestamp.now();
-  private _date: Date = this.value.toDate();
+  private _date!: Date;
 
   get date(): Date {
     return this._date;
@@ -24,4 +24,8 @@ export class TimestampInputComponent {
   }
 
   @Output() valueChange = new EventEmitter<Timestamp>();
+
+  ngOnInit() {
+    this._date = this.value.toDate();
+  }
 }
