@@ -17,7 +17,8 @@ export class DocumentEntry {
     public thumbnails: string[],
     public content: DocumentContentEntry[],
     public gitLink: string,
-    public favorite: boolean
+    public favorite: boolean,
+    public id?: string,
   ) {}
 }
 

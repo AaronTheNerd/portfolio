@@ -17,6 +17,7 @@ export class ProjectConverterService {
 
   convertRawProject(rawProject: DocumentEntry): Project {
     return new Project(
+      rawProject.id ?? "",
       rawProject.title,
       rawProject.school,
       rawProject.languages.map((languageValue: string) => {

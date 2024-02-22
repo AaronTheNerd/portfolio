@@ -27,20 +27,20 @@ export class ProjectsService implements OnDestroy {
     return this.projects.slice();
   }
 
-  getProjectByTitle(title: string): Observable<Project | undefined> {
+  getProjectById(id: string): Observable<Project | undefined> {
     if (this.firestoreService.loading) {
       return this.firestoreService.getProjects().pipe(
         map((projects: Project[]) => {
-          return this._findByName(projects, title);
+          return this._findById(projects, id);
         })
       );
     }
-    return of(this._findByName(this.projects, title));
+    return of(this._findById(this.projects, id));
   }
 
-  private _findByName(projects: Project[], title: string): Project | undefined {
+  private _findById(projects: Project[], id: string): Project | undefined {
     return projects.find((project: Project) => {
-      return project.title === title;
+      return project.id === id;
     });
   }
 

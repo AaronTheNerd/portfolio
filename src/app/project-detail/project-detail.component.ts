@@ -28,7 +28,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
 
   determineProjectOnPageLoad(): void {
     const title: string = this.route.snapshot.paramMap.get("name")!;
-    const subscription = this.projectsService.getProjectByTitle(title)
+    const subscription = this.projectsService.getProjectById(title)
     .subscribe((project) => {
       if (!project) {
         this.goBack();
