@@ -32,11 +32,11 @@ const routes: Routes = [
     }
   },
   {
-    path: "projects/:name",
+    path: "projects/:id",
     component: ProjectDetailComponent
   },
   {
-    path: "projects/:name/edit",
+    path: "projects/:id/edit",
     component: ProjectFormComponent,
     data: {
       operation: ProjectOperation.edit
