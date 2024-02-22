@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DocumentContentEntry } from '../../../_models/project-document.model';
+import { DynamicComponentEntry } from '../../../_models/project-document.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -8,7 +8,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrl: './content-input.component.scss'
 })
 export class ContentInputComponent {
-  dynamicComponents: DocumentContentEntry[] = [
+  dynamicComponents: DynamicComponentEntry[] = [
     {
       componentType: "ParagraphComponent",
       inputs: {
@@ -37,10 +37,10 @@ export class ContentInputComponent {
       }
     },
   ];
-  @Input() content: DocumentContentEntry[] = [];
-  @Output() contentChange = new EventEmitter<DocumentContentEntry[]>();
+  @Input() content: DynamicComponentEntry[] = [];
+  @Output() contentChange = new EventEmitter<DynamicComponentEntry[]>();
 
-  drop(event: CdkDragDrop<DocumentContentEntry[]>) {
+  drop(event: CdkDragDrop<DynamicComponentEntry[]>) {
     moveItemInArray(this.content, event.previousIndex, event.currentIndex);
     console.log(`prev: ${event.previousIndex}, new: ${event.currentIndex}`)
     this.contentChange.emit(this.content.slice());
@@ -67,7 +67,7 @@ export class ContentInputComponent {
     })
   }
 
-  copy_component_entry(index: number): DocumentContentEntry {
+  copy_component_entry(index: number): DynamicComponentEntry {
     const default_entry = this.dynamicComponents[index];
     const entry = Object.assign({}, default_entry);
     entry.inputs = Object.assign({}, default_entry.inputs);

@@ -1,11 +1,11 @@
 import { Timestamp } from "@angular/fire/firestore";
 
-export type DocumentContentEntry = {
+export type DynamicComponentEntry = {
   componentType: string,
   inputs: {[key: string]: unknown}
 };
 
-export class DocumentEntry {
+export class ProjectDocument {
   constructor(
     public title: string,
     public school: boolean,
@@ -15,17 +15,17 @@ export class DocumentEntry {
     public modified: Timestamp,
     public created: Timestamp,
     public thumbnails: string[],
-    public content: DocumentContentEntry[],
+    public content: DynamicComponentEntry[],
     public gitLink: string,
     public favorite: boolean,
     public id?: string,
   ) {}
 }
 
-export type ProjectDocument = DocumentEntry[];
+export type ProjectCollection = ProjectDocument[];
 
-export function default_project(): DocumentEntry {
-  return new DocumentEntry(
+export function default_project(): ProjectDocument {
+  return new ProjectDocument(
     "",
     false,
     [],

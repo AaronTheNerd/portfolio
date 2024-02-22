@@ -1,9 +1,10 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectsService } from '../_services/projects.service';
 import { Project } from '../_models/project.model';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { Auth, onAuthStateChanged } from '@angular/fire/auth';
 
 
 @Component({
@@ -14,16 +15,23 @@ import { Subscription } from 'rxjs';
 export class ProjectDetailComponent implements OnInit, OnDestroy {
   @Input() project: Project | null = null;
   loading: boolean = true;
+  authenticated: boolean = false;
   subscriptions: Subscription[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private projectsService: ProjectsService,
-    private location: Location
+    private location: Location,
+    private auth: Auth,
+    private router: Router
   ) {}
 
   goBack(): void {
     this.location.back();
+  }
+
+  edit(): void {
+    this.router.navigate(["edit"], { relativeTo: this.route });
   }
 
   determineProjectOnPageLoad(): void {
@@ -41,6 +49,9 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    onAuthStateChanged(this.auth, (user) => {
+      this.authenticated = user !== null;
+    });
     if (!this.project) {
       this.determineProjectOnPageLoad();
     } else {

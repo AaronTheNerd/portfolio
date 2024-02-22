@@ -38,6 +38,7 @@ const routes: Routes = [
   {
     path: "projects/:id/edit",
     component: ProjectFormComponent,
+    canActivate: [AuthGuard],
     data: {
       operation: ProjectOperation.edit
     }

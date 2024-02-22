@@ -10,13 +10,21 @@
     <div class="col">
       <app-article id="top">
         <div>
-          <p class="display-5 mb-0" [innerText]="project.title"></p>
+          <p class="display-5 mb-0">
+            {{project.title}}
+            <button
+              class="btn btn-primary"
+              *ngIf="authenticated"
+              (click)="edit()">
+              Edit
+            </button>
+          </p>
           <hr class="mt-0" />
-              <p [innerHTML]="project.description"></p>
-              <br />
-              <app-github-card
-                *ngIf="project.gitLink"
-                [link]="project.gitLink"></app-github-card>
+          <p [innerHTML]="project.description"></p>
+          <br />
+          <app-github-card
+            *ngIf="project.gitLink"
+            [link]="project.gitLink"></app-github-card>
         </div>
         <div
           *ngFor="let dynamicComponent of project.content">
