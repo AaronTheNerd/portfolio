@@ -5,6 +5,7 @@ import { Project } from '../_models/project.model';
 import { Location } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { Auth, onAuthStateChanged } from '@angular/fire/auth';
+import { FirestoreService } from '../_services/firestore.service';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     private projectsService: ProjectsService,
     private location: Location,
     private auth: Auth,
-    private router: Router
+    private router: Router,
+    private firestore: FirestoreService
   ) {}
 
   goBack(): void {
@@ -32,6 +34,13 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
 
   edit(): void {
     this.router.navigate(["edit"], { relativeTo: this.route });
+  }
+
+  deleteProject(): void {
+    this.firestore.deleteProject(this.project!.id)
+    .then(() => {
+      this.router.navigate(["projects"]);
+    })
   }
 
   determineProjectOnPageLoad(): void {

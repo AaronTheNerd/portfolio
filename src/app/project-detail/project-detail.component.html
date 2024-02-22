@@ -13,10 +13,16 @@
           <p class="display-5 mb-0">
             {{project.title}}
             <button
-              class="btn btn-primary"
+              class="btn btn-primary me-2"
               *ngIf="authenticated"
               (click)="edit()">
               Edit
+            </button>
+            <button
+              class="btn btn-danger text-white"
+              *ngIf="authenticated"
+              (click)="deleteProject()">
+              Delete
             </button>
           </p>
           <hr class="mt-0" />

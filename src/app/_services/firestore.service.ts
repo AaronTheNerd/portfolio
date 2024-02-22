@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { DocumentData, Firestore, addDoc, collection, collectionData, updateDoc, doc, DocumentReference } from '@angular/fire/firestore';
+import { DocumentData, Firestore, addDoc, collection, collectionData, updateDoc, doc, DocumentReference, deleteDoc } from '@angular/fire/firestore';
 import { Observable, map, tap } from 'rxjs';
 import { Project } from '../_models/project.model';
 import { ProjectCollection, ProjectDocument } from '../_models/project-document.model';
@@ -51,7 +51,12 @@ export class FirestoreService {
     let raw_project_entry = Object.assign({}, raw_project) as {[key: string]: any};
     delete raw_project_entry['id'];
     return updateDoc(docReference, raw_project_entry);
-
   }
   
+  deleteProject(id: string): Promise<void> {
+    const itemCollection = collection(this.firestore, "projects");
+    const docReference = doc(itemCollection, id);
+    return deleteDoc(docReference);
+  }
+
 }
