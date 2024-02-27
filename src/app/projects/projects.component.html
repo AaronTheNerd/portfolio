@@ -1,5 +1,13 @@
 <app-article>
-  <p class="display-4">Projects</p>
+  <p class="display-4">
+    Projects
+    <button
+      class="btn btn-primary me-2"
+      *ngIf="authenticated"
+      (click)="add()">
+      New Project
+    </button>
+  </p>
   @if (loading) {
     <app-spinner></app-spinner>
   } @else {
