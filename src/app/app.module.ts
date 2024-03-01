@@ -48,6 +48,7 @@ import { TimestampInputComponent } from './admin/project-form/timestamp-input/ti
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ContentInputComponent } from './admin/project-form/content-input/content-input.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CodeFileComponent } from './project-detail/dynamic/code-file/code-file.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ProjectFormComponent,
     MultiInputComponent,
     TimestampInputComponent,
-    ContentInputComponent
+    ContentInputComponent,
+    CodeFileComponent
   ],
   imports: [
     BrowserModule,

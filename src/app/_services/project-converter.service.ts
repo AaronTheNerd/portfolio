@@ -8,6 +8,7 @@ import { SectionHeadingComponent } from '../project-detail/dynamic/section-headi
 import { SubsectionHeadingComponent } from '../project-detail/dynamic/subsection-heading/subsection-heading.component';
 import { SubsubsectionHeadingComponent } from '../project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
 import { Timestamp } from '@angular/fire/firestore';
+import { CodeFileComponent } from '../project-detail/dynamic/code-file/code-file.component';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,8 @@ export class ProjectConverterService {
         return SubsectionHeadingComponent;
       case "SubsubsectionHeadingComponent":
         return SubsubsectionHeadingComponent;
+      case "CodeFileComponent":
+        return CodeFileComponent
     }
     throw new Error(`Unexpected componentType: ${componentType}`);
   }
@@ -94,6 +97,8 @@ export class ProjectConverterService {
         return "SubsectionHeadingComponent";
       case SubsubsectionHeadingComponent:
         return "SubsubsectionHeadingComponent";
+      case CodeFileComponent:
+        return "CodeFileComponent";
     }
     throw new Error(`Unexpected componentType: ${componentType}`);
   }
