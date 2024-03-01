@@ -2,7 +2,7 @@
 <div
   cdkDropList
   (cdkDropListDropped)="drop($event)"
-  style="width: 30em; max-height: 100vh; overflow-y: scroll;"
+  style="max-height: 100vh; overflow-y: scroll;"
   class="px-5 py-1 bg-darker">
   @for (entry of content; track entry; let index = $index) {
     <div class="row rounded bg-dark text-white p-3 px-1 mb-3" cdkDrag>
@@ -31,13 +31,24 @@
             <label for="{{input.key}}{{index}}" class="form-label">
               {{input.key | titlecase}}
             </label>
-            <input
-              class="form-control bg-white border-0 text-black"
-              type="text"
-              name="{{input.key}}{{index}}"
-              id="{{input.key}}{{index}}"
-              [ngModel]="content[index].inputs[input.key]"
-              (ngModelChange)="set_input_value(index, input.key, $event)">
+            @if (get_input_types(entry.componentType)[input.key] === "textarea") {
+              <textarea
+                name="{{input.key}}{{index}}"
+                id="{{input.key}}{{index}}"
+                cols="30" rows="10"
+                class="form-control bg-white border-0 text-black"
+                [ngModel]="content[index].inputs[input.key]"
+                (ngModelChange)="set_input_value(index, input.key, $event)">
+              </textarea>
+            } @else {
+              <input
+                class="form-control bg-white border-0 text-black"
+                type="text"
+                name="{{input.key}}{{index}}"
+                id="{{input.key}}{{index}}"
+                [ngModel]="content[index].inputs[input.key]"
+                (ngModelChange)="set_input_value(index, input.key, $event)">
+            }
           </div>
         }
       </div>
