@@ -103,6 +103,9 @@ export class ProjectFormComponent implements OnInit, OnDestroy {
   }
 
   ngDoCheck(): void {
+    if (this.raw_project_differ === undefined) {
+      return;
+    }
     const changes = this.raw_project_differ.diff(this.raw_project);
     if (changes) {
       this.project = this.clean_raw();
