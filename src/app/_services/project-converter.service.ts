@@ -18,11 +18,16 @@ export class ProjectConverterService {
   constructor() { }
 
   convertRawProject(rawProject: ProjectDocument): Project {
+    function notNull<DynamicContent>(value: DynamicContent | null): value is DynamicContent {
+      return value !== null;
+    }
+    
     return new Project(
       rawProject.id ?? "",
       rawProject.title,
       rawProject.school,
-      rawProject.languages.map((languageValue: string) => {
+      rawProject.languages
+      .map((languageValue: string) => {
         return valueStringToLanguage(languageValue)!;
       }),
       rawProject.description,
@@ -30,22 +35,28 @@ export class ProjectConverterService {
       rawProject.modified.toDate(),
       rawProject.created.toDate(),
       rawProject.thumbnails,
-      rawProject.content.map((content: DynamicComponentEntry) => {
+      rawProject.content
+      .map((content: DynamicComponentEntry) => {
         return this._cleanContentEntry(content);
-      }),
+      })
+      .filter(notNull),
       rawProject.gitLink,
       rawProject.favorite
     );
   }
 
-  private _cleanContentEntry(content: DynamicComponentEntry): DynamicContent {
+  private _cleanContentEntry(content: DynamicComponentEntry): DynamicContent | null {
+    const componentType = this._parseComponentType(content.componentType);
+    if (componentType === null) {
+      return null;
+    }
     return {
-      componentType: this._parseComponentType(content.componentType),
+      componentType,
       inputs: content.inputs
     }
   }
 
-  private _parseComponentType(componentType: string): Type<any> {
+  private _parseComponentType(componentType: string): Type<any> | null {
     switch (componentType) {
       case "ParagraphComponent":
         return ParagraphComponent;
@@ -58,7 +69,7 @@ export class ProjectConverterService {
       case "CodeFileComponent":
         return CodeFileComponent
     }
-    throw new Error(`Unexpected componentType: ${componentType}`);
+    return null;
   }
 
   convertProject(project: Project): ProjectDocument {
