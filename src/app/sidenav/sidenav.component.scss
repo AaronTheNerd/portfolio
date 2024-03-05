@@ -1,11 +1,11 @@
 @import "../app.variables.scss";
 
-$indicator-width: 3px;
 
 #sidenav-container {
   position: fixed;
   top: 0;
   left: 0;
+  width: $sidenav-width;
 }
 
 .active {
