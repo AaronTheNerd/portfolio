@@ -67,7 +67,7 @@ export class ProjectConverterService {
       case "SubsubsectionHeadingComponent":
         return SubsubsectionHeadingComponent;
       case "CodeFileComponent":
-        return CodeFileComponent
+        return CodeFileComponent;
     }
     return null;
   }
