@@ -18,10 +18,6 @@ export class ProjectConverterService {
   constructor() { }
 
   convertRawProject(rawProject: ProjectDocument): Project {
-    function notNull<DynamicContent>(value: DynamicContent | null): value is DynamicContent {
-      return value !== null;
-    }
-    
     return new Project(
       rawProject.id ?? "",
       rawProject.title,
@@ -39,7 +35,7 @@ export class ProjectConverterService {
       .map((content: DynamicComponentEntry) => {
         return this._cleanContentEntry(content);
       })
-      .filter(notNull),
+      .filter(this._notNull),
       rawProject.gitLink,
       rawProject.favorite
     );
@@ -50,10 +46,18 @@ export class ProjectConverterService {
     if (componentType === null) {
       return null;
     }
-    return {
-      componentType,
-      inputs: content.inputs
+    const result: {[key: string]: any} = { componentType, inputs: content.inputs };
+    if (content.children) {
+      result['children'] = content.children.map((entry) => {
+        return this._cleanContentEntry(entry);
+      })
+      .filter(this._notNull);
     }
+    return result as DynamicContent;
+  }
+
+  private _notNull<DynamicContent>(value: DynamicContent | null): value is DynamicContent {
+    return value !== null;
   }
 
   private _parseComponentType(componentType: string): Type<any> | null {
@@ -92,10 +96,16 @@ export class ProjectConverterService {
   }
 
   _convertContentEntry(entry: DynamicContent): DynamicComponentEntry {
-    return {
+    let result: {[key: string]: any} = {
       componentType: this._convertComponentType(entry.componentType),
       inputs: entry.inputs
-    };
+    }
+    if (entry.children) {
+      result['children'] = entry.children.map((entry: DynamicContent) => {
+        return this._convertContentEntry(entry);
+      });
+    }
+    return result as DynamicComponentEntry;
   }
 
   _convertComponentType(componentType: Type<any>): string {

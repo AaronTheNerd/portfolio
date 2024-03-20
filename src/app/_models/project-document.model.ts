@@ -2,7 +2,8 @@ import { Timestamp } from "@angular/fire/firestore";
 
 export type DynamicComponentEntry = {
   componentType: string,
-  inputs: {[key: string]: unknown}
+  inputs: {[key: string]: unknown},
+  children?: DynamicComponentEntry[];
 };
 
 export class ProjectDocument {

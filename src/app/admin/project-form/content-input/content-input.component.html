@@ -27,11 +27,11 @@
           </mat-select>
         </div>
         @for (input of content[index].inputs | keyvalue; track input.key) {
-          <div class="form-group mb-2">
+          <div *ngIf="get_input_types(entry.componentType)[input.key] as inputType" class="form-group mb-2">
             <label for="{{input.key}}{{index}}" class="form-label">
               {{input.key | titlecase}}
             </label>
-            @if (get_input_types(entry.componentType)[input.key] === "textarea") {
+            @if (inputType === "textarea") {
               <textarea
                 name="{{input.key}}{{index}}"
                 id="{{input.key}}{{index}}"
@@ -40,6 +40,12 @@
                 [ngModel]="content[index].inputs[input.key]"
                 (ngModelChange)="set_input_value(index, input.key, $event)">
               </textarea>
+            } @else if (inputType === "multi-input") {
+              <app-multi-input
+                id="{{input.key}}{{index}}"
+                [value]="$any(content[index].inputs[input.key])"
+                (valueChange)="set_input_value(index, input.key, $event)"
+                ></app-multi-input>
             } @else {
               <input
                 class="form-control bg-white border-0 text-black"
@@ -50,6 +56,11 @@
                 (ngModelChange)="set_input_value(index, input.key, $event)">
             }
           </div>
+          @if (entry.children !== undefined) {
+            <app-content-input
+              [content]="entry.children"
+              (contentChange)="set_children(index, $event)"></app-content-input>
+          }
         }
       </div>
     </div>

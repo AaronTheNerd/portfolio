@@ -68,13 +68,22 @@ export class ContentInputComponent {
         language: "input"
       }
     },
+    {
+      componentType: "RowComponent",
+      children: [],
+      inputs: {
+        widths: []
+      },
+      input_types: {
+        widths: "multi-input"
+      }
+    },
   ];
   @Input() content: DynamicComponentEntry[] = [];
   @Output() contentChange = new EventEmitter<DynamicComponentEntry[]>();
 
   drop(event: CdkDragDrop<DynamicComponentEntry[]>) {
     moveItemInArray(this.content, event.previousIndex, event.currentIndex);
-    console.log(`prev: ${event.previousIndex}, new: ${event.currentIndex}`)
     this.contentChange.emit(this.content.slice());
   }
 
@@ -103,11 +112,14 @@ export class ContentInputComponent {
     const default_entry = this.dynamicComponents[index];
     const entry = Object.assign({}, default_entry);
     entry.inputs = Object.assign({}, default_entry.inputs);
+    if (entry.children !== undefined) {
+      entry.children = [];
+    }
     delete entry.input_types;
     return entry as DynamicComponentEntry;
   }
 
-  set_input_value(index: number, key: string, value: string) {
+  set_input_value(index: number, key: string, value: any) {
     this.content[index].inputs[key] = value;
     this.contentChange.emit(this.content.slice());
   }
@@ -117,5 +129,10 @@ export class ContentInputComponent {
       return entry.componentType === componentType
     })!;
     return entry.input_types!;
+  }
+
+  set_children(index: number, value: DynamicComponentEntry[]) {
+    this.content[index].children = value;
+    this.contentChange.emit(this.content.slice());
   }
 }
