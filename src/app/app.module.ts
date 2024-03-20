@@ -49,6 +49,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ContentInputComponent } from './admin/project-form/content-input/content-input.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CodeFileComponent } from './project-detail/dynamic/code-file/code-file.component';
+import { RowComponent } from './project-detail/dynamic/row/row.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { CodeFileComponent } from './project-detail/dynamic/code-file/code-file.
     MultiInputComponent,
     TimestampInputComponent,
     ContentInputComponent,
-    CodeFileComponent
+    CodeFileComponent,
+    RowComponent
   ],
   imports: [
     BrowserModule,

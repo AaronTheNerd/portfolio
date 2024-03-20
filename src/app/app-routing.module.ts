@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule, inject } from '@angular/core';
+import { ActivatedRouteSnapshot, ResolveFn, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
 import { AuthGuard } from '@angular/fire/auth-guard'
 
 import { HomeComponent } from './home/home.component';
@@ -8,6 +8,16 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { LoginComponent } from './admin/login/login.component';
 import { ProjectFormComponent } from './admin/project-form/project-form.component';
 import { ProjectOperation } from './_enums/project_operation.enum';
+import { Project } from './_models/project.model';
+import { ProjectsService } from './_services/projects.service';
+
+export const projectResolver: ResolveFn<Project | undefined> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  const id = route.params['id'];
+  return inject(ProjectsService).getProjectById(id);
+};
 
 const routes: Routes = [
   {
@@ -33,7 +43,10 @@ const routes: Routes = [
   },
   {
     path: "projects/:id",
-    component: ProjectDetailComponent
+    component: ProjectDetailComponent,
+    resolve: {
+      project: projectResolver
+    }
   },
   {
     path: "projects/:id/edit",
@@ -41,6 +54,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       operation: ProjectOperation.edit
+    },
+    resolve: {
+      project: projectResolver
     }
   },
   {
