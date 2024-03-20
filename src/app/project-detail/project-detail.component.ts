@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterContentChecked, Component, ComponentRef, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../_models/project.model';
 import { Location } from '@angular/common';
@@ -10,8 +10,7 @@ import { DynamicComponent } from '../_models/dynamic-component.model';
 
 @Component({
   selector: 'app-project-detail',
-  templateUrl: './project-detail.component.html',
-  styleUrl: './project-detail.component.scss'
+  templateUrl: './project-detail.component.html'
 })
 export class ProjectDetailComponent implements OnInit, OnDestroy, AfterContentChecked {
   @Input() project!: Project;
