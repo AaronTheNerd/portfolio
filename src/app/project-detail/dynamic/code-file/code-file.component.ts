@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component } from '@angular/core';
 import { HighlightService } from '../../../_services/highlight.service';
 import { DynamicComponent } from '../../../_models/dynamic-component.model'
+import { DynamicContent } from '../../../_models/dynamic-content.model';
 
 @Component({
   selector: 'app-code-file',
@@ -26,7 +27,7 @@ export class CodeFileComponent extends DynamicComponent implements AfterViewChec
     }
   }
 
-  applyInputs(inputs: {[key: string]: any}) {
+  applyInputs(inputs: {[key: string]: any}, children?: DynamicContent[]) {
     this.title = inputs['title'];
     this.content = inputs['content'];
     this.language = inputs['language'];

@@ -73,7 +73,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy, AfterContentCh
     this.dynamicContent.clear();
     for (const contentEntry of this.project!.content) {
       const contentRef: ComponentRef<DynamicComponent>= this.dynamicContent.createComponent(contentEntry.componentType);
-      contentRef.instance.applyInputs(contentEntry.inputs);
+      contentRef.instance.applyInputs(contentEntry.inputs, contentEntry.children);
     }
   }
 }
