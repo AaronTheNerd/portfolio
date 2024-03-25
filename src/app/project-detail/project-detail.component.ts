@@ -12,7 +12,7 @@ import { DynamicComponent } from '../_models/dynamic-component.model';
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html'
 })
-export class ProjectDetailComponent implements OnInit, OnDestroy, AfterContentChecked {
+export class ProjectDetailComponent implements OnInit, OnDestroy {
   @Input() project!: Project;
   authenticated: boolean = false;
   subscriptions: Subscription[] = [];
@@ -59,7 +59,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy, AfterContentCh
     }
   }
 
-  ngAfterContentChecked(): void {
+  ngDoCheck(): void {
     this._loadContent();
   }
 

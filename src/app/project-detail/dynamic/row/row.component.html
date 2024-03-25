@@ -3,6 +3,8 @@
     *ngFor="let width of widths; index as i"
     class="col"
     [style]="{ width }">
-    <ng-content select="[entry-{{i}}]"></ng-content>
+    <ng-container
+      *ngComponentOutlet="children[i].componentType; inputs: children[i].inputs">
+    </ng-container>
   </div>
 </div>
