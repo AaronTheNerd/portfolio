@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component } from '@angular/core';
+import { AfterViewChecked, Component, Input } from '@angular/core';
 import { HighlightService } from '../../../_services/highlight.service';
 import { DynamicComponent } from '../../../_models/dynamic-component.model'
 import { DynamicContent } from '../../../_models/dynamic-content.model';
@@ -9,9 +9,9 @@ import { DynamicContent } from '../../../_models/dynamic-content.model';
   styleUrl: './code-file.component.scss'
 })
 export class CodeFileComponent extends DynamicComponent implements AfterViewChecked {
-  title!: string;
-  content!: string;
-  language!: string;
+  @Input() title!: string;
+  @Input() content!: string;
+  @Input() language!: string;
 
   isHighlighted = false;
   isCollapsed = true;
