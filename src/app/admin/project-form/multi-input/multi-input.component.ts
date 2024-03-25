@@ -25,8 +25,7 @@ export class MultiInputComponent {
   }
 
   is_valid(input_value: string): boolean {
-    return !this.value.includes(input_value)
-      && input_value !== ""
+    return input_value !== ""
       && (this.options.length ? this.options.includes(input_value) : true)
       && this.customValidator(input_value);
   }
