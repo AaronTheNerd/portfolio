@@ -1,24 +1,17 @@
 #home-content {
   position: absolute;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   background-image: url("../../assets/gif17.gif");
   background-size: cover;
   padding-left: auto;
   padding-right: auto;
 }
 
-#inner-content {
-  width: 75vw;
-}
-
-#image {
-  max-width: 100%;
-}
-
 #contact-content {
   width: fit-content;
+  height: fit-content;
 }
