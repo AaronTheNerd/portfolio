@@ -19,7 +19,7 @@ export class ContentInputComponent {
         text: ""
       },
       input_types: {
-        text: "input"
+        text: "textarea"
       }
     },
     {
