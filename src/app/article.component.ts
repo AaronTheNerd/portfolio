@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-article',
   template: `
   <div class="row" style="width: 100%; margin-left: 0px">
-    <div class="col-xs-12 col-sm-11 col-md-10 mx-auto px-0 py-5">
+    <div class="col-sm-12 col-md-11 col-lg-10 mx-auto px-0 py-5">
       <ng-content></ng-content>
     </div>
   </div>
