@@ -1,33 +1,34 @@
-<div class="row w-100">
-  <div class="col-auto">
-    <app-table-of-contents
-      [content]="project.content">
-    </app-table-of-contents>
-  </div>
-  <div class="col">
-    <app-article>
-      <p class="display-5 mb-0">
-        {{project.title}}
-        <button
-          class="btn btn-primary me-2"
-          *ngIf="authenticated"
-          (click)="edit()">
-          Edit
-        </button>
-        <button
-          class="btn btn-danger text-white"
-          *ngIf="authenticated"
-          (click)="deleteProject()">
-          Delete
-        </button>
-      </p>
-      <hr class="mt-0" />
-      <p [innerHTML]="project.description"></p>
-      <br />
+<app-article>
+  <p class="display-5 mb-0">
+    {{project.title}}
+    <button
+      class="btn btn-primary me-2"
+      *ngIf="authenticated"
+      (click)="edit()">
+      Edit
+    </button>
+    <button
+      class="btn btn-danger text-white"
+      *ngIf="authenticated"
+      (click)="deleteProject()">
+      Delete
+    </button>
+  </p>
+  <hr class="mt-0" />
+  <p [innerHTML]="project.description"></p>
+  <div class="row">
+    <div class="col-auto">
+      <app-table-of-contents
+        [content]="project.content">
+      </app-table-of-contents>
+    </div>
+    <div class="col-auto ms-auto">
       <app-github-card
         *ngIf="project.gitLink"
-        [link]="project.gitLink"></app-github-card>
-      <ng-container #dynamicContent></ng-container>
-    </app-article>
+        [link]="project.gitLink">
+      </app-github-card>
+    </div>
   </div>
-</div>
+  
+  <ng-container #dynamicContent></ng-container>
+</app-article>

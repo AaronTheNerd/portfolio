@@ -1,8 +1,9 @@
 <div
-  class="p-2 ps-4 bg-dark"
+  class="p-2 bg-darker rounded"
   style="max-width: 300px;">
-  <h1>Contents</h1>
-  <ul class="me-3">
+  <h5>Contents</h5>
+  <hr class="m-0">
+  <ul class="me-3 p-0">
     <li *ngFor="let section of sections">
       <span
         *ngIf="section.subsections.length"
