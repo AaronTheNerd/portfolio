@@ -27,10 +27,12 @@ const routes: Routes = [
   },
   {
     path: "home",
+    title: "Aaron Barge's Portfolio",
     component: HomeComponent,
   },
   {
     path: "projects",
+    title: "Aaron Barge's Projects",
     component: ProjectsComponent
   },
   {
@@ -43,6 +45,7 @@ const routes: Routes = [
   },
   {
     path: "projects/:id",
+    title: "Project Detail",
     component: ProjectDetailComponent,
     resolve: {
       project: projectResolver
