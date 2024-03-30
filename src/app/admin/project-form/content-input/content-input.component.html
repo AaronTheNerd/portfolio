@@ -46,6 +46,14 @@
                 [value]="$any(content[index].inputs[input.key])"
                 (valueChange)="set_input_value(index, input.key, $event)"
                 ></app-multi-input>
+            } @else if (inputType === "checkbox") {
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="{{input.key}}{{index}}"
+                id="{{input.key}}{{index}}"
+                [ngModel]="content[index].inputs[input.key]"
+                (ngModelChange)="set_input_value(index, input.key, $event)">
             } @else {
               <input
                 class="form-control bg-white border-0 text-black"
