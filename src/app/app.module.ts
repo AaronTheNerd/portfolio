@@ -50,6 +50,7 @@ import { ContentInputComponent } from './admin/project-form/content-input/conten
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CodeFileComponent } from './project-detail/dynamic/code-file/code-file.component';
 import { RowComponent } from './project-detail/dynamic/row/row.component';
+import { VideoComponent } from './project-detail/dynamic/video/video.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { RowComponent } from './project-detail/dynamic/row/row.component';
     TimestampInputComponent,
     ContentInputComponent,
     CodeFileComponent,
-    RowComponent
+    RowComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

@@ -78,6 +78,21 @@ export class ContentInputComponent {
         widths: "multi-input"
       }
     },
+    {
+      componentType: "VideoComponent",
+      inputs: {
+        video_url: "",
+        autoplay: false,
+        controls: true,
+        description: ""
+      },
+      input_types: {
+        video_url: "input",
+        autoplay: "checkbox",
+        controls: "checkbox",
+        description: "input"
+      }
+    }
   ];
   @Input() content: DynamicComponentEntry[] = [];
   @Output() contentChange = new EventEmitter<DynamicComponentEntry[]>();
