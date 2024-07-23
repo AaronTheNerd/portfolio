@@ -4,17 +4,8 @@
   </p>
   <hr class="mt-0" />
   <p [innerHTML]="project.description"></p>
-  <div class="row">
-    <div class="col-auto">
-      <app-table-of-contents
-        [content]="[]">
-      </app-table-of-contents>
-    </div>
-    <div class="col-auto ms-auto">
-      <app-github-card
-        *ngIf="project.gitLink"
-        [link]="project.gitLink">
-      </app-github-card>
-    </div>
-  </div>
+  <app-github-card
+    *ngIf="project.gitLink"
+    [link]="project.gitLink">
+  </app-github-card>
 </app-article>

@@ -27,7 +27,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { GithubCardComponent } from './project-detail/github-card/github-card.component'
 import { MatCardModule } from '@angular/material/card';
-import { TableOfContentsComponent } from './project-detail/table-of-contents/table-of-contents.component';
 import { SectionHeadingComponent } from './project-detail/section-heading/section-heading.component';
 import { SubsectionHeadingComponent } from './project-detail/subsection-heading/subsection-heading.component';
 import { SubsubsectionHeadingComponent } from './project-detail/subsubsection-heading/subsubsection-heading.component';
@@ -61,7 +60,6 @@ import { VideoComponent } from './project-detail/video/video.component';
     FilterDialogComponent,
     ProjectDetailComponent,
     GithubCardComponent,
-    TableOfContentsComponent,
     SectionHeadingComponent,
     SubsectionHeadingComponent,
     SubsubsectionHeadingComponent,
