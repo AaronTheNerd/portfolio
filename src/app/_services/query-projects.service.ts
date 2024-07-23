@@ -25,9 +25,6 @@ export class QueryProjectsService implements OnDestroy {
       this.currentQuery = query;
       this._query(this.projectsService.getProjects());
     }));
-    this.subscriptions.push(this.projectsService.projectsChanged.subscribe((projects: Project[]) => {
-      this._query(projects);
-    }));
   }
 
   getQuery(): ProjectQuery {

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { TOCSection } from "../../_models/TOC-section.model";
 import { DynamicContent } from "../../_models/dynamic-content.model";
-import { SectionHeadingComponent } from "../dynamic/section-heading/section-heading.component";
-import { SubsectionHeadingComponent } from "../dynamic/subsection-heading/subsection-heading.component";
-import { SubsubsectionHeadingComponent } from "../dynamic/subsubsection-heading/subsubsection-heading.component";
+import { SectionHeadingComponent } from "../section-heading/section-heading.component";
+import { SubsectionHeadingComponent } from "../subsection-heading/subsection-heading.component";
+import { SubsubsectionHeadingComponent } from "../subsubsection-heading/subsubsection-heading.component";
 
 @Component({
   selector: "app-table-of-contents",

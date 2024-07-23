@@ -28,29 +28,22 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { GithubCardComponent } from './project-detail/github-card/github-card.component'
 import { MatCardModule } from '@angular/material/card';
 import { TableOfContentsComponent } from './project-detail/table-of-contents/table-of-contents.component';
-import { SectionHeadingComponent } from './project-detail/dynamic/section-heading/section-heading.component';
-import { SubsectionHeadingComponent } from './project-detail/dynamic/subsection-heading/subsection-heading.component';
-import { SubsubsectionHeadingComponent } from './project-detail/dynamic/subsubsection-heading/subsubsection-heading.component';
+import { SectionHeadingComponent } from './project-detail/section-heading/section-heading.component';
+import { SubsectionHeadingComponent } from './project-detail/subsection-heading/subsection-heading.component';
+import { SubsubsectionHeadingComponent } from './project-detail/subsubsection-heading/subsubsection-heading.component';
 import { FormatDatePipe } from './_pipes/format-date.pipe';
 import { FormatLanguagePipe } from './_pipes/format-language.pipe';
-import { ParagraphComponent } from './project-detail/dynamic/paragraph/paragraph.component'
+import { ParagraphComponent } from './project-detail/paragraph/paragraph.component'
 import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
-import { getFirestore, provideFirestore } from "@angular/fire/firestore"
-import { provideAuth, getAuth } from "@angular/fire/auth";
-import { LoginComponent } from './admin/login/login.component';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { ProjectFormComponent } from './admin/project-form/project-form.component';
-import { MultiInputComponent } from './admin/project-form/multi-input/multi-input.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { TimestampInputComponent } from './admin/project-form/timestamp-input/timestamp-input.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ContentInputComponent } from './admin/project-form/content-input/content-input.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { CodeFileComponent } from './project-detail/dynamic/code-file/code-file.component';
-import { RowComponent } from './project-detail/dynamic/row/row.component';
-import { VideoComponent } from './project-detail/dynamic/video/video.component';
+import { CodeFileComponent } from './project-detail/code-file/code-file.component';
+import { RowComponent } from './project-detail/row/row.component';
+import { VideoComponent } from './project-detail/video/video.component';
 
 
 @NgModule({
@@ -75,12 +68,7 @@ import { VideoComponent } from './project-detail/dynamic/video/video.component';
     FormatDatePipe,
     FormatLanguagePipe,
     ParagraphComponent,
-    LoginComponent,
     SpinnerComponent,
-    ProjectFormComponent,
-    MultiInputComponent,
-    TimestampInputComponent,
-    ContentInputComponent,
     CodeFileComponent,
     RowComponent,
     VideoComponent
@@ -102,8 +90,6 @@ import { VideoComponent } from './project-detail/dynamic/video/video.component';
     MatCheckboxModule,
     MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,

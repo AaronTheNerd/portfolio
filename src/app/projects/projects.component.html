@@ -1,23 +1,13 @@
 <app-article>
   <p class="display-4">
     Projects
-    <button
-      class="btn btn-primary me-2"
-      *ngIf="authenticated"
-      (click)="add()">
-      New Project
-    </button>
   </p>
-  @if (loading) {
-    <app-spinner></app-spinner>
-  } @else {
-    <app-search-bar></app-search-bar>
-    <div
-      *ngFor="let proj of projects; index as i"
-      class="my-4">
-      <app-project-search-result 
-        [project]="proj">
-      </app-project-search-result>
-    </div>
-  }
+  <app-search-bar></app-search-bar>
+  <div
+    *ngFor="let proj of projects; index as i"
+    class="my-4">
+    <app-project-search-result 
+      [project]="proj">
+    </app-project-search-result>
+  </div>
 </app-article>
