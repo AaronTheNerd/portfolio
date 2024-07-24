@@ -13,15 +13,9 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   @Input() project!: Project;
   authenticated: boolean = false;
   subscriptions: Subscription[] = [];
-  @ViewChild("dynamicContent", {
-    static: true,
-    read: ViewContainerRef
-  }) dynamicContent!: ViewContainerRef;
-
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private router: Router,
   ) {}
 
   goBack(): void {

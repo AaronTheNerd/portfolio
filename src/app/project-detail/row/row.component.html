@@ -1,9 +1,0 @@
-<div class="row w-100">
-  <div
-    *ngFor="let col_size of widths; index as i"
-    class="col-{{col_size}}">
-    <ng-container
-      *ngComponentOutlet="children[i].componentType; inputs: children[i].inputs">
-    </ng-container>
-  </div>
-</div>

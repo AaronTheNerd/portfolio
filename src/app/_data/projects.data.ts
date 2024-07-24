@@ -1,5 +1,17 @@
 import { Language } from "../_enums/language.enum";
 import { Project } from "../_models/project.model";
+import { AudioVisualizerComponent } from "../project-detail/projects/audio-visualizer/audio-visualizer.component";
+import { ChristmasTreeComponent } from "../project-detail/projects/christmas-tree/christmas-tree.component";
+import { DiscordBotComponent } from "../project-detail/projects/discord-bot/discord-bot.component";
+import { EllipseApproxComponent } from "../project-detail/projects/ellipse-approx/ellipse-approx.component";
+import { MergesortComponent } from "../project-detail/projects/mergesort/mergesort.component";
+import { PythonProjectWizardComponent } from "../project-detail/projects/python-project-wizard/python-project-wizard.component";
+import { RiscVComponent } from "../project-detail/projects/risc-v/risc-v.component";
+import { RoombaComponent } from "../project-detail/projects/roomba/roomba.component";
+import { SortingVisualizerComponent } from "../project-detail/projects/sorting-visualizer/sorting-visualizer.component";
+import { TcpConnectionComponent } from "../project-detail/projects/tcp-connection/tcp-connection.component";
+import { TriangularMeshComponent } from "../project-detail/projects/triangular-mesh/triangular-mesh.component";
+import { UintegerComponent } from "../project-detail/projects/uinteger/uinteger.component";
 
 export const PROJECTS: Project[] = [
   {
@@ -12,7 +24,8 @@ export const PROJECTS: Project[] = [
     created: new Date("08/25/2023"),
     thumbnails: [],
     gitLink: "https://github.com/AaronTheNerd/PythonProjectWizard",
-    favorite: true
+    favorite: true,
+    component: PythonProjectWizardComponent
   },
   {
     title: "Simple TCP Connection",
@@ -24,7 +37,8 @@ export const PROJECTS: Project[] = [
     created: new Date("04/01/2020"),
     thumbnails: [],
     gitLink: "",
-    favorite: false
+    favorite: false,
+    component: TcpConnectionComponent
   },
   {
     title: "Runtime Optimization of MergeSort via Multithreading",
@@ -36,7 +50,8 @@ export const PROJECTS: Project[] = [
     created: new Date("11/01/2019"),
     thumbnails: ["assets/thumbnails/chart.png"],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/C++/MergeSort",
-    favorite: false
+    favorite: false,
+    component: MergesortComponent
   },
   {
     title: "Ellipse Perimeter Approximation",
@@ -48,7 +63,8 @@ export const PROJECTS: Project[] = [
     created: new Date("10/28/2022"),
     thumbnails: ["assets/thumbnails/ellipse-comparison.png"],
     gitLink: "https://github.com/AaronTheNerd/EllipseApprox",
-    favorite: false
+    favorite: false,
+    component: EllipseApproxComponent
   },
   {
     title: "Programmable Christmas Tree",
@@ -60,7 +76,8 @@ export const PROJECTS: Project[] = [
     created: new Date("11/01/2020"),
     thumbnails: ["assets/thumbnails/christmas.jpg"],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/Arduino/AnimatedChristmasTree",
-    favorite: false
+    favorite: false,
+    component: ChristmasTreeComponent
   },
   {
     title: "Unsigned Arbitrary Precision Integer",
@@ -72,7 +89,8 @@ export const PROJECTS: Project[] = [
     created: new Date("11/01/2020"),
     thumbnails: [],
     gitLink: "https://github.com/AaronTheNerd/uInteger",
-    favorite: true
+    favorite: true,
+    component: UintegerComponent
   },
   {
     title: "Triangular Mesh Animator",
@@ -87,7 +105,8 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/triangles/triangle2.jpg"
     ],
     gitLink: "https://github.com/AaronTheNerd/DynamicBackgrounds",
-    favorite: false
+    favorite: false,
+    component: TriangularMeshComponent
   },
   {
     title: "Audio Visualizer",
@@ -101,7 +120,8 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/visualizer.jpg"
     ],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/MatLab/AudioVisualizer",
-    favorite: true
+    favorite: true,
+    component: AudioVisualizerComponent
   },
   {
     title: "Roomba Interface",
@@ -114,7 +134,8 @@ export const PROJECTS: Project[] = [
     thumbnails: [
     ],
     gitLink: "https://github.com/AaronTheNerd/csce274_project1",
-    favorite: false
+    favorite: false,
+    component: RoombaComponent
   },
   {
     title: "Discord Bot",
@@ -128,7 +149,8 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/discord.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/DiscordBot",
-    favorite: false
+    favorite: false,
+    component: DiscordBotComponent
   },
   {
     title: "RISC-V CPU",
@@ -142,7 +164,8 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/de2-115.png"
     ],
     gitLink: "https://github.com/AaronTheNerd/CSCE611/tree/master/lab_jb",
-    favorite: true
+    favorite: true,
+    component: RiscVComponent
   },
   {
     title: "Sorting Algorithm Visualizer",
@@ -158,6 +181,7 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/sorter/sorter3.jpg",
     ],
     gitLink: "https://github.com/AaronTheNerd/SortingAlgorithmVisualizer",
-    favorite: false
+    favorite: false,
+    component: SortingVisualizerComponent
   },
 ];

@@ -32,7 +32,6 @@ import { SubsectionHeadingComponent } from './project-detail/subsection-heading/
 import { SubsubsectionHeadingComponent } from './project-detail/subsubsection-heading/subsubsection-heading.component';
 import { FormatDatePipe } from './_pipes/format-date.pipe';
 import { FormatLanguagePipe } from './_pipes/format-language.pipe';
-import { ParagraphComponent } from './project-detail/paragraph/paragraph.component'
 import { environment } from '../environments/environment';
 import { provideFirebaseApp, initializeApp } from "@angular/fire/app";
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -41,8 +40,19 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CodeFileComponent } from './project-detail/code-file/code-file.component';
-import { RowComponent } from './project-detail/row/row.component';
 import { VideoComponent } from './project-detail/video/video.component';
+import { PythonProjectWizardComponent } from './project-detail/projects/python-project-wizard/python-project-wizard.component';
+import { TcpConnectionComponent } from './project-detail/projects/tcp-connection/tcp-connection.component';
+import { MergesortComponent } from './project-detail/projects/mergesort/mergesort.component';
+import { EllipseApproxComponent } from './project-detail/projects/ellipse-approx/ellipse-approx.component';
+import { ChristmasTreeComponent } from './project-detail/projects/christmas-tree/christmas-tree.component';
+import { UintegerComponent } from './project-detail/projects/uinteger/uinteger.component';
+import { TriangularMeshComponent } from './project-detail/projects/triangular-mesh/triangular-mesh.component';
+import { AudioVisualizerComponent } from './project-detail/projects/audio-visualizer/audio-visualizer.component';
+import { RoombaComponent } from './project-detail/projects/roomba/roomba.component';
+import { DiscordBotComponent } from './project-detail/projects/discord-bot/discord-bot.component';
+import { RiscVComponent } from './project-detail/projects/risc-v/risc-v.component';
+import { SortingVisualizerComponent } from './project-detail/projects/sorting-visualizer/sorting-visualizer.component';
 
 
 @NgModule({
@@ -65,11 +75,21 @@ import { VideoComponent } from './project-detail/video/video.component';
     SubsubsectionHeadingComponent,
     FormatDatePipe,
     FormatLanguagePipe,
-    ParagraphComponent,
     SpinnerComponent,
     CodeFileComponent,
-    RowComponent,
-    VideoComponent
+    VideoComponent,
+    PythonProjectWizardComponent,
+    TcpConnectionComponent,
+    MergesortComponent,
+    EllipseApproxComponent,
+    ChristmasTreeComponent,
+    UintegerComponent,
+    TriangularMeshComponent,
+    AudioVisualizerComponent,
+    RoombaComponent,
+    DiscordBotComponent,
+    RiscVComponent,
+    SortingVisualizerComponent
   ],
   imports: [
     BrowserModule,

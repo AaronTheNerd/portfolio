@@ -11,6 +11,7 @@ export class Project {
     public created: Date,
     public thumbnails: string[],
     public gitLink: string,
-    public favorite: boolean
+    public favorite: boolean,
+    public component: any
   ) {}
 }
