@@ -128,7 +128,7 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/discord.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/DiscordBot",
-    favorite: true
+    favorite: false
   },
   {
     title: "RISC-V CPU",
