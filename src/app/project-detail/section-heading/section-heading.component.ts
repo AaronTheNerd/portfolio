@@ -7,5 +7,4 @@ import { Component, Input } from "@angular/core";
 })
 export class SectionHeadingComponent {
   @Input() title!: string;
-  @Input() id!: string;
 }
