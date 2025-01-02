@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     tags: ["Multithreading"],
     modified: new Date("07/01/2023"),
     created: new Date("10/28/2022"),
-    thumbnails: ["assets/thumbnails/ellipse-comparison.png"],
+    thumbnails: ["assets/thumbnails/ellipse-comparison.webp"],
     gitLink: "https://github.com/AaronTheNerd/EllipseApprox",
     favorite: false,
     component: EllipseApproxComponent
