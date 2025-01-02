@@ -34,9 +34,6 @@ $portfolio-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 @import "../src/app/app.variables.scss";
 
 $theme-colors: (
@@ -51,4 +48,5 @@ $theme-colors: (
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
-
+html, body { height: 100%; }
+body { margin: 0; font-family: "droid-sans-mono", monospace; }
