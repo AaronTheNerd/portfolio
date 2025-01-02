@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
     tags: ["Serial I/O", "Information Encoding/Decoding"],
     modified: new Date("12/01/2020"),
     created: new Date("11/01/2020"),
-    thumbnails: ["assets/thumbnails/christmas.jpg"],
+    thumbnails: ["assets/thumbnails/christmas.webp"],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/Arduino/AnimatedChristmasTree",
     favorite: false,
     component: ChristmasTreeComponent
