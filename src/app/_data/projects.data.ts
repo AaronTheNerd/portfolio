@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     tags: ["Multithreading", "Performance Analysis"],
     modified: new Date("12/01/2019"),
     created: new Date("11/01/2019"),
-    thumbnails: ["assets/thumbnails/chart.png"],
+    thumbnails: ["assets/thumbnails/chart.webp"],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/C++/MergeSort",
     favorite: false,
     component: MergesortComponent
