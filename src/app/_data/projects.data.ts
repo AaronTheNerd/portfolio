@@ -101,8 +101,8 @@ export const PROJECTS: Project[] = [
     modified: new Date("02/08/2024"),
     created: new Date("05/01/2021"),
     thumbnails: [
-      "assets/thumbnails/triangles/triangle1.jpg",
-      "assets/thumbnails/triangles/triangle2.jpg"
+      "assets/thumbnails/triangles/triangle1.webp",
+      "assets/thumbnails/triangles/triangle2.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/DynamicBackgrounds",
     favorite: false,
