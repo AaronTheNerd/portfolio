@@ -161,7 +161,7 @@ export const PROJECTS: Project[] = [
     modified: new Date("12/01/2020"),
     created: new Date("10/01/2020"),
     thumbnails: [
-      "assets/thumbnails/de2-115.png"
+      "assets/thumbnails/de2-115.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/CSCE611/tree/master/lab_jb",
     favorite: true,
