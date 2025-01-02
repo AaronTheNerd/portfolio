@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
     modified: new Date("12/08/2019"),
     created: new Date("12/01/2019"),
     thumbnails: [
-      "assets/thumbnails/visualizer.jpg"
+      "assets/thumbnails/visualizer.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/Personal-Coding-Projects/tree/master/MatLab/AudioVisualizer",
     favorite: true,
