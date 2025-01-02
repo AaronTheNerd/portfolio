@@ -176,9 +176,9 @@ export const PROJECTS: Project[] = [
     modified: new Date("08/31/2021"),
     created: new Date("08/01/2021"),
     thumbnails: [
-      "assets/thumbnails/sorter/sorter1.jpg",
-      "assets/thumbnails/sorter/sorter2.jpg",
-      "assets/thumbnails/sorter/sorter3.jpg",
+      "assets/thumbnails/sorter/sorter1.webp",
+      "assets/thumbnails/sorter/sorter2.webp",
+      "assets/thumbnails/sorter/sorter3.webp",
     ],
     gitLink: "https://github.com/AaronTheNerd/SortingAlgorithmVisualizer",
     favorite: false,
