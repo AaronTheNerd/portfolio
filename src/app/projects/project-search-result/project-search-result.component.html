@@ -1,14 +1,17 @@
 <div
   [routerLink]="['/projects', project.title]"
-  class="project-row row m-0 p-3 rounded bg-darker">
-  <div class="col ps-0 my-auto">
-    <h1>
-      {{ project.title }}&nbsp;
-      <span *ngFor="let lang of project.languages">
-        <app-language-icon [icon]="lang"></app-language-icon>
-      </span>
-    </h1>
-    <div class="pb-3" [innerHTML]="project.description | truncate : 400"></div>
+  class="project-row row m-0 p-3 rounded bg-darker mh-50">
+  <h1
+    class="px-0">
+    {{ project.title }}&nbsp;
+    <span *ngFor="let lang of project.languages">
+      <app-language-icon [icon]="lang"></app-language-icon>
+    </span>
+  </h1>
+  <div class="col ps-0">
+    <div
+      class="pb-3 mb-auto"
+      [innerHTML]="project.description | truncate : 400"></div>
     <div class="row pb-2">
       <div class="col-auto">
         <div>
@@ -29,41 +32,42 @@
         </div>
       </div>
     </div>
-    <div>
-      <fa-icon
-        *ngIf="project.favorite"
-        [icon]="starIcon"
-        matTooltip="This is my favorite {{project.languages[0] | formatLanguage}} project"
-        class="h3 mx-1"
-        style="z-index: 100; vertical-align: middle"></fa-icon>
-      <a
-        *ngIf="project.gitLink"
-        [href]="project.gitLink"
-        matTooltip="Link to source"
-        class="mx-1"
-        style="z-index: 100; vertical-align: middle"
-        role="button">
-        <fa-icon
-          [icon]="githubIcon"
-          class="h3"
-          style="vertical-align: middle"></fa-icon>
-      </a>
-      <span class="mx-2">
-        <img
-          *ngIf="project.school"
-          src="assets/USC.png"
-          matTooltip="This is a University project"
-          style="
-            height: calc(1.3rem + 0.6vw);
-            z-index: 100;
-            vertical-align: middle;
-          " />
-      </span>
-    </div>
   </div>
   <div
     *ngIf="project.thumbnails.length"
     class="col-auto d-none d-lg-block p-0 my-auto">
     <app-image-carousel [images]="project.thumbnails"></app-image-carousel>
+  </div>
+  <div
+    class="mt-auto ps-0">
+    <fa-icon
+      *ngIf="project.favorite"
+      [icon]="starIcon"
+      matTooltip="This is my favorite {{project.languages[0] | formatLanguage}} project"
+      class="h3 mx-1"
+      style="z-index: 100; vertical-align: middle"></fa-icon>
+    <a
+      *ngIf="project.gitLink"
+      [href]="project.gitLink"
+      matTooltip="Link to source"
+      class="mx-1"
+      style="z-index: 100; vertical-align: middle"
+      role="button">
+      <fa-icon
+        [icon]="githubIcon"
+        class="h3"
+        style="vertical-align: middle"></fa-icon>
+    </a>
+    <span class="mx-2">
+      <img
+        *ngIf="project.school"
+        src="assets/USC.png"
+        matTooltip="This is a University project"
+        style="
+          height: calc(1.3rem + 0.6vw);
+          z-index: 100;
+          vertical-align: middle;
+        " />
+    </span>
   </div>
 </div>
