@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Project } from '../../_models/project.model';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -12,4 +12,5 @@ export class ProjectSearchResultComponent {
   @Input({ required: true }) project!: Project;
   starIcon = faStar;
   githubIcon = faGithub;
+  plusIcon = faPlus;
 }

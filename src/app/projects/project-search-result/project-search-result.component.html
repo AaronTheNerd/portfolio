@@ -1,6 +1,7 @@
 <div
-  [routerLink]="['/projects', project.title]"
-  class="project-row row m-0 p-3 rounded bg-darker mh-50">
+  [routerLink]="project.detail_component ? ['/projects', project.title] : []"
+  class="row m-0 p-3 pb-2 rounded bg-darker mh-50"
+  [ngClass]="{'clickable-project': project.detail_component}">
   <h1
     class="px-0">
     {{ project.title }}&nbsp;
@@ -9,28 +10,12 @@
     </span>
   </h1>
   <div class="col ps-0">
+    <div class="py-2 pt-1">
+      {{ project.created | formatDate }} - {{ project.modified | formatDate }}
+    </div>
     <div
       class="pb-3 mb-auto"
-      [innerHTML]="project.description | truncate : 400"></div>
-    <div class="row pb-2 d-none d-lg-block">
-      <div class="col-auto">
-        <div>
-          <b>Creation Date:</b>
-        </div>
-        <div *ngIf="project.tags.length">
-          <b>Tools Used:</b>
-        </div>
-      </div>
-      <div class="col">
-        <div>
-          {{ project.created | formatDate }} - {{ project.modified | formatDate }}
-        </div>
-        <div *ngIf="project.tags.length">
-          <span *ngFor="let tag of project.tags; let index = index">
-            {{ tag }}{{ index + 1 !== project.tags.length ? "," : "" }}&nbsp;
-          </span>
-        </div>
-      </div>
+      [innerHTML]="project.description | truncate : 400 : !project.detail_component">
     </div>
   </div>
   <div
@@ -39,13 +24,14 @@
     <app-image-carousel [images]="project.thumbnails"></app-image-carousel>
   </div>
   <div
-    class="mt-auto ps-0">
+    class="mt-3 px-0 w-100 d-flex flex-row">
     <fa-icon
       *ngIf="project.favorite"
       [icon]="starIcon"
       matTooltip="This is my favorite {{project.languages[0] | formatLanguage}} project"
-      class="h3 mx-1"
-      style="z-index: 100; vertical-align: middle"></fa-icon>
+      class="h3 mx-1 my-auto"
+      style="z-index: 100; vertical-align: middle">
+    </fa-icon>
     <a
       *ngIf="project.gitLink"
       [href]="project.gitLink"
@@ -58,16 +44,25 @@
         class="h3"
         style="vertical-align: middle"></fa-icon>
     </a>
-    <span class="mx-2">
+    <span 
+      *ngIf="project.school"
+      class="mx-2 my-auto"
+      style="vertical-align: middle;">
       <img
-        *ngIf="project.school"
         src="assets/USC.png"
         matTooltip="This is a University project"
         style="
           height: calc(1.3rem + 0.6vw);
           z-index: 100;
-          vertical-align: middle;
         " />
+    </span>
+    <span class="ms-auto">
+      <fa-icon
+        *ngIf="project.detail_component"
+        [icon]="plusIcon"
+        class="h3"
+        style="z-index: 100; vertical-align: middle">
+      </fa-icon>
     </span>
   </div>
 </div>

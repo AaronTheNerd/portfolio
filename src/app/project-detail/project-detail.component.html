@@ -8,5 +8,7 @@
     *ngIf="project.gitLink"
     [link]="project.gitLink">
   </app-github-card>
-  <ng-container *ngComponentOutlet="project.component"></ng-container>
+  <div *ngIf="project.detail_component">
+    <ng-container *ngComponentOutlet="project.detail_component"></ng-container>
+  </div>
 </app-article>
