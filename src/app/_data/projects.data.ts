@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     favorite: false
   },
   {
-    title: "Runtime Optimization of MergeSort via Multithreading",
+    title: "Runtime Optimization of MergeSort",
     school: true,
     languages: [Language.cpp],
     description: "A C++ program that was developed as part of an assignment for a Statistics course. The aim of the project was to optimize the runtime of the mergeSort algorithm by leveraging multithreading techniques. The program allows for adjusting the number of worker threads available to the mergeSort algorithm and measures the runtime to find the optimal number of threads that can optimize the algorithm's performance.",
