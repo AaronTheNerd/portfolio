@@ -50,6 +50,7 @@ import { AudioVisualizerComponent } from './project-detail/projects/audio-visual
 import { RoombaComponent } from './project-detail/projects/roomba/roomba.component';
 import { DiscordBotComponent } from './project-detail/projects/discord-bot/discord-bot.component';
 import { SortingVisualizerComponent } from './project-detail/projects/sorting-visualizer/sorting-visualizer.component';
+import { FooterComponent } from './projects/project-search-result/footer/footer.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { SortingVisualizerComponent } from './project-detail/projects/sorting-vi
     AudioVisualizerComponent,
     RoombaComponent,
     DiscordBotComponent,
-    SortingVisualizerComponent
+    SortingVisualizerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

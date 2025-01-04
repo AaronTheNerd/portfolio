@@ -1,0 +1,42 @@
+<div
+  class="mt-3 px-0 w-100 d-flex flex-row">
+  <fa-icon
+    *ngIf="project.favorite"
+    [icon]="starIcon"
+    matTooltip="This is my favorite {{project.languages[0] | formatLanguage}} project"
+    class="h3 mx-1 my-auto"
+    style="z-index: 100; vertical-align: middle">
+  </fa-icon>
+  <a
+    *ngIf="project.gitLink"
+    [href]="project.gitLink"
+    matTooltip="Link to source"
+    class="mx-1"
+    style="z-index: 100; vertical-align: middle"
+    role="button">
+    <fa-icon
+      [icon]="githubIcon"
+      class="h3"
+      style="vertical-align: middle"></fa-icon>
+  </a>
+  <span 
+    *ngIf="project.school"
+    class="mx-2 my-auto"
+    style="vertical-align: middle;">
+    <img
+      src="assets/USC.png"
+      matTooltip="This is a University project"
+      style="
+        height: calc(1.3rem + 0.6vw);
+        z-index: 100;
+      " />
+  </span>
+  <span class="ms-auto">
+    <fa-icon
+      *ngIf="project.detail_component"
+      [icon]="plusIcon"
+      class="h3"
+      style="z-index: 100; vertical-align: middle">
+    </fa-icon>
+  </span>
+</div>
