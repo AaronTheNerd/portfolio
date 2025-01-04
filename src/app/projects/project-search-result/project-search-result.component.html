@@ -2,9 +2,8 @@
   [routerLink]="project.detail_component ? ['/projects', project.title] : []"
   class="row m-0 p-3 pb-2 rounded bg-darker mh-50"
   [ngClass]="{'clickable-project': project.detail_component}">
-  <h1
-    class="px-0">
-    {{ project.title }}&nbsp;
+  <h1 class="px-0">
+    {{ project.title }}
     <span *ngFor="let lang of project.languages">
       <app-language-icon [icon]="lang"></app-language-icon>
     </span>
