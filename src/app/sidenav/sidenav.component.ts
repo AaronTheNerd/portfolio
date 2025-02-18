@@ -20,7 +20,7 @@ export class SidenavComponent {
     );
   }
   sidenavItems: SidenavItem[] = [
-    new SidenavItem("Home", ["home"], "", "logo"),
-    new SidenavItem("Projects", ["projects"], "code"),
+    new SidenavItem("Home", ["home"], { svgIcon: "logo" }),
+    new SidenavItem("Projects", ["projects"], { fontIcon: "code" }),
   ];
 }

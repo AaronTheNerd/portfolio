@@ -1,8 +1,15 @@
+interface Icon {
+  fontIcon: string;
+  svgIcon: string;
+}
+
 export class SidenavItem {
+  public icon: Icon;
   constructor(
     public tooltip: string,
     public route: any[],
-    public fontIcon: string = "",
-    public svgIcon: string = ""
-  ) {}
+    { fontIcon = "", svgIcon = "" }
+  ) {
+    this.icon = { fontIcon, svgIcon };
+  }
 }
