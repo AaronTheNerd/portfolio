@@ -51,6 +51,7 @@ import { RoombaComponent } from './project-detail/projects/roomba/roomba.compone
 import { DiscordBotComponent } from './project-detail/projects/discord-bot/discord-bot.component';
 import { SortingVisualizerComponent } from './project-detail/projects/sorting-visualizer/sorting-visualizer.component';
 import { FooterComponent } from './projects/project-search-result/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { FooterComponent } from './projects/project-search-result/footer/footer.
     MatDatepickerModule,
     MatNativeDateModule,
     MatAutocompleteModule,
-    DragDropModule
+    DragDropModule,
+    HttpClientModule
   ],
   providers: [
     MatDatepickerModule

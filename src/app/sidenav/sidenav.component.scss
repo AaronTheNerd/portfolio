@@ -10,10 +10,8 @@
 
 .active {
   border-left: $indicator-width solid $primary;
-  color: $primary;
 }
 
 a:not(active) {
   border-left: $indicator-width solid transparent;
-  color: $light;
 }
