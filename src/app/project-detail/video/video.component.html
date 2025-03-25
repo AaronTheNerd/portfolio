@@ -1,12 +1,14 @@
-<div class="video_container border rounded bg-primary border-primary border-2">
+<div
+  class="border rounded bg-primary border-primary border-2"
+  style="width: fit-content">
   <video
     [src]="video_url"
     class="rounded my-0"
+    style="max-height: 100vh; max-width: 100%;"
     [autoplay]="autoplay"
     muted
     [controls]="controls"
-    [loop]="loop"
-    class="w-100 rounded">
+    [loop]="loop">
   </video>
   <div class="bg-primary p-2">{{description}}</div>
 </div>
