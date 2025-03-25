@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     title: "Programmable Christmas Tree",
     school: false,
     languages: [Language.py, Language.arduino],
-    description: "A DIY project that brings a unique and interactive twist to traditional holiday decorations. By utilizing an Arduino microcontroller and a Python program, this project allows users to program and customize the lighting patterns and animations on their Christmas tree, creating a dazzling and dynamic display.",
+    description: "A DIY project that brings a unique and interactive twist to traditional holiday decorations. By utilizing an Arduino microcontroller and a Python program, this project allows users to program and customize the lighting patterns and animations on their Christmas tree.",
     tags: ["Serial I/O", "Information Encoding/Decoding"],
     modified: new Date("12/01/2020"),
     created: new Date("11/01/2020"),
