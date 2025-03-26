@@ -52,6 +52,7 @@ import { DiscordBotComponent } from './project-detail/projects/discord-bot/disco
 import { SortingVisualizerComponent } from './project-detail/projects/sorting-visualizer/sorting-visualizer.component';
 import { FooterComponent } from './projects/project-search-result/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { KatexComponent } from './katex/katex.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { HttpClientModule } from '@angular/common/http';
     RoombaComponent,
     DiscordBotComponent,
     SortingVisualizerComponent,
-    FooterComponent
+    FooterComponent,
+    KatexComponent
   ],
   imports: [
     BrowserModule,

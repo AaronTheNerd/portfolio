@@ -1,1 +1,15 @@
-<p>ellipse-approx works!</p>
+<app-section-heading
+  title="Results"
+  id="results">
+</app-section-heading>
+
+<ngb-carousel class="w-100">
+  <ng-template ngbSlide *ngFor="let approx of approximations">
+    <div class="w-100 bg-darker">
+      <img [src]="approx.plot" alt="Approximation" class="d-block mx-auto pt-2" style="padding-bottom: 100px;"/>
+    </div>
+    <div class="carousel-caption bg-darker">
+      <app-katex [tex]="approx.formula"></app-katex>
+    </div>
+  </ng-template>
+</ngb-carousel>

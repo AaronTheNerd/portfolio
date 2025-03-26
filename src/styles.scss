@@ -34,6 +34,8 @@ $portfolio-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+@import 'katex/dist/katex.css';
+
 @import "../src/app/app.variables.scss";
 
 $theme-colors: (
