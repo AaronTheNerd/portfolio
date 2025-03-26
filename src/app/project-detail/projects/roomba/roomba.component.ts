@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-roomba',
-  templateUrl: './roomba.component.html',
-  styleUrl: './roomba.component.scss'
+  templateUrl: './roomba.component.html'
 })
 export class RoombaComponent {
 
