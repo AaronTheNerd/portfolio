@@ -2,7 +2,6 @@ import { Language } from "../_enums/language.enum";
 import { Project } from "../_models/project.model";
 import { AudioVisualizerComponent } from "../project-detail/projects/audio-visualizer/audio-visualizer.component";
 import { ChristmasTreeComponent } from "../project-detail/projects/christmas-tree/christmas-tree.component";
-import { DiscordBotComponent } from "../project-detail/projects/discord-bot/discord-bot.component";
 import { EllipseApproxComponent } from "../project-detail/projects/ellipse-approx/ellipse-approx.component";
 import { PythonProjectWizardComponent } from "../project-detail/projects/python-project-wizard/python-project-wizard.component";
 import { RoombaComponent } from "../project-detail/projects/roomba/roomba.component";
@@ -136,7 +135,7 @@ export const PROJECTS: Project[] = [
     title: "Discord Bot",
     school: false,
     languages: [Language.py],
-    description: "A Discord bot written in Python which utilizes the <code>discord.py</code> library to play music and assist in virtual D&D sessions in my friend's Discord server. The bot utilizes the <code>youtubeDL</code> library to search and download music from YouTube, which is then played through a voice channel in the server. In addition to music playback, the bot has commands for rolling dice, which can be used to simulate actions and combat in D&D sessions. The bot can roll various types of dice with support for rolling with advantage or disadvantage. Through this project, I gained experience in integrating APIs, programming with Python, and developing a customized bot for multiple use cases as requested by users.",
+    description: "A Discord bot written in Python which utilizes the <code>discord.py</code> library to play music and assist in virtual D&D sessions in my friend's Discord server. The bot utilizes the <code>youtubeDL</code> library to search and download music from YouTube, which is then played through a voice channel in the server. In addition to music playback, the bot has commands for rolling dice, generating random pokemon, and giving random facts. Through this project, I gained experience in integrating APIs, programming with Python, and developing a customized bot for multiple use cases as requested by users.",
     tags: ["Discord.py", "Bot", "Coroutines", "Youtube-dl", "User Feedback"],
     modified: new Date("10/19/2023"),
     created: new Date("09/01/2021"),
@@ -144,8 +143,7 @@ export const PROJECTS: Project[] = [
       "assets/thumbnails/discord.webp"
     ],
     gitLink: "https://github.com/AaronTheNerd/DiscordBot",
-    favorite: false,
-    detail_component: DiscordBotComponent
+    favorite: false
   },
   {
     title: "RISC-V CPU",

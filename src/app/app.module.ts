@@ -48,7 +48,6 @@ import { UintegerComponent } from './project-detail/projects/uinteger/uinteger.c
 import { TriangularMeshComponent } from './project-detail/projects/triangular-mesh/triangular-mesh.component';
 import { AudioVisualizerComponent } from './project-detail/projects/audio-visualizer/audio-visualizer.component';
 import { RoombaComponent } from './project-detail/projects/roomba/roomba.component';
-import { DiscordBotComponent } from './project-detail/projects/discord-bot/discord-bot.component';
 import { SortingVisualizerComponent } from './project-detail/projects/sorting-visualizer/sorting-visualizer.component';
 import { FooterComponent } from './projects/project-search-result/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -85,7 +84,6 @@ import { KatexComponent } from './katex/katex.component';
     TriangularMeshComponent,
     AudioVisualizerComponent,
     RoombaComponent,
-    DiscordBotComponent,
     SortingVisualizerComponent,
     FooterComponent,
     KatexComponent
