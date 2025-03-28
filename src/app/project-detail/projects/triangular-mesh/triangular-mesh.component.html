@@ -1,1 +1,12 @@
-<p>triangular-mesh works!</p>
+<app-section-heading
+  title="Results"
+  id="results">
+</app-section-heading>
+
+<ngb-carousel class="w-100">
+  <ng-template ngbSlide *ngFor="let example of examples">
+    <div class="w-100 bg-darker">
+      <img [src]="example" alt="Approximation" class="d-block mx-auto pt-2 vh-100"/>
+    </div>
+  </ng-template>
+</ngb-carousel>
