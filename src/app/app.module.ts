@@ -44,7 +44,6 @@ import { VideoComponent } from './project-detail/video/video.component';
 import { PythonProjectWizardComponent } from './project-detail/projects/python-project-wizard/python-project-wizard.component';
 import { EllipseApproxComponent } from './project-detail/projects/ellipse-approx/ellipse-approx.component';
 import { ChristmasTreeComponent } from './project-detail/projects/christmas-tree/christmas-tree.component';
-import { UintegerComponent } from './project-detail/projects/uinteger/uinteger.component';
 import { TriangularMeshComponent } from './project-detail/projects/triangular-mesh/triangular-mesh.component';
 import { AudioVisualizerComponent } from './project-detail/projects/audio-visualizer/audio-visualizer.component';
 import { RoombaComponent } from './project-detail/projects/roomba/roomba.component';
@@ -80,7 +79,6 @@ import { KatexComponent } from './katex/katex.component';
     PythonProjectWizardComponent,
     EllipseApproxComponent,
     ChristmasTreeComponent,
-    UintegerComponent,
     TriangularMeshComponent,
     AudioVisualizerComponent,
     RoombaComponent,

@@ -7,7 +7,6 @@ import { PythonProjectWizardComponent } from "../project-detail/projects/python-
 import { RoombaComponent } from "../project-detail/projects/roomba/roomba.component";
 import { SortingVisualizerComponent } from "../project-detail/projects/sorting-visualizer/sorting-visualizer.component";
 import { TriangularMeshComponent } from "../project-detail/projects/triangular-mesh/triangular-mesh.component";
-import { UintegerComponent } from "../project-detail/projects/uinteger/uinteger.component";
 
 export const PROJECTS: Project[] = [
   {
@@ -83,14 +82,13 @@ export const PROJECTS: Project[] = [
     created: new Date("11/01/2020"),
     thumbnails: [],
     gitLink: "https://github.com/AaronTheNerd/uInteger",
-    favorite: true,
-    detail_component: UintegerComponent
+    favorite: true
   },
   {
     title: "Triangular Mesh Animator",
     school: false,
     languages: [Language.py],
-    description: "A Python program that generates mesmerizing animations of morphing triangles. The program utilizes a combination of mathematical algorithms and user customization to create unique and visually appealing GIFs.",
+    description: "A Python program that generates looping animations of morphing triangles. The program utilizes a combination of mathematical algorithms and user customization to create unique and visually appealing GIFs.",
     tags: ["OpenSimplex", "PIL", "Delaunay Triangulation"],
     modified: new Date("02/08/2024"),
     created: new Date("05/01/2021"),
